@@ -1,7 +1,6 @@
 package createdBy51mon.servlets;
 
-import createdBy51mon.dto.PersonDTO;
-import createdBy51mon.service.PersonService;
+import createdBy51mon.service.CommonService;
 import createdBy51mon.service.impl.PersonServiceImpl;
 import createdBy51mon.utils.*;
 
@@ -15,7 +14,7 @@ import java.io.IOException;
 
 @WebServlet(name = "savePersonServlet", value = "/save")
 public class SavePersonServlet extends HttpServlet {
-    private final PersonService personService = new PersonServiceImpl();
+    private final CommonService personService = new PersonServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

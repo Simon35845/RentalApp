@@ -1,7 +1,6 @@
 <%@ page import="createdBy51mon.utils.ServletConstants" %>
 <%@ page import="createdBy51mon.dto.PersonDTO" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>

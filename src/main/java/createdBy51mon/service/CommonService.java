@@ -4,7 +4,7 @@ import createdBy51mon.dto.PersonDTO;
 
 import java.util.List;
 
-public interface PersonService {
+public interface CommonService {
     /**
      * Получает из сервлета DTO, конвертирует в Entity
      * и передает на слой DAO для сохранения

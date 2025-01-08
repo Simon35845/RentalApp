@@ -4,13 +4,13 @@ import createdBy51mon.dao.Impl.PersonDAOImpl;
 import createdBy51mon.dao.PersonDAO;
 import createdBy51mon.dto.PersonDTO;
 import createdBy51mon.entity.PersonEntity;
-import createdBy51mon.service.PersonService;
+import createdBy51mon.service.CommonService;
 import createdBy51mon.utils.PersonConverter;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PersonServiceImpl implements PersonService {
+public class PersonServiceImpl implements CommonService {
     private final PersonDAO personDAO = new PersonDAOImpl();
 
     @Override
