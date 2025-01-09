@@ -9,7 +9,7 @@ public class PersonConverter {
      * @param entity входной объект типа {@code PersonEntity}
      * @return объект типа {@code PersonDTO}
      */
-    public static PersonDTO convertPerson(PersonEntity entity) {
+    public static PersonDTO toDTO(PersonEntity entity) {
         if (entity == null) {
             return null;
         }
@@ -27,7 +27,7 @@ public class PersonConverter {
      * @param dto входной объект типа {@code PersonDTO}
      * @return объект типа {@code PersonEntity}
      */
-    public static PersonEntity convertPerson(PersonDTO dto) {
+    public static PersonEntity toEntity(PersonDTO dto) {
         if (dto == null) {
             return null;
         }

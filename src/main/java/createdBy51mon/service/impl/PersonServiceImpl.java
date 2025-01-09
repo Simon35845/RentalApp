@@ -15,26 +15,26 @@ public class PersonServiceImpl implements CommonService {
 
     @Override
     public PersonDTO save(PersonDTO personDTO) {
-        PersonEntity personEntity = PersonConverter.convertPerson(personDTO);
+        PersonEntity personEntity = PersonConverter.toEntity(personDTO);
         personDTO.setId(personDAO.save(personEntity).getId());
         return personDTO;
     }
 
     @Override
     public PersonDTO get(Integer id) {
-        return PersonConverter.convertPerson(personDAO.get(id));
+        return PersonConverter.toDTO(personDAO.get(id));
     }
 
     @Override
     public List<PersonDTO> getAll() {
         return personDAO.getAll().stream()
-                .map(PersonConverter::convertPerson)
+                .map(PersonConverter::toDTO)
                 .collect(Collectors.toList());
     }
 
     @Override
     public PersonDTO update(Integer id, PersonDTO personDTO) {
-        PersonEntity personEntity = PersonConverter.convertPerson(personDTO);
+        PersonEntity personEntity = PersonConverter.toEntity(personDTO);
         personEntity.setId(id);
         personDTO.setId(personDAO.update(id, personEntity).getId());
         return personDTO;

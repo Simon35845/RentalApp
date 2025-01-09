@@ -40,7 +40,7 @@ public class DAOImpl<T> implements DAO<T> {
     @Override
     public T update(Integer id, T t) {
         return ExecutorUtil.executeHibernate(this.entityManager, em -> {
-            T updatedEntity = em.find(clazz, id);
+            T updatedEntity = this.entityManager.find(clazz, id);
             if (updatedEntity != null) {
                 updatedEntity = em.merge(t);
             }
