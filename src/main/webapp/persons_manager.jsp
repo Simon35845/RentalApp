@@ -24,8 +24,8 @@
 <table>
     <tr>
         <td>ID</td>
-        <td>Имя</td>
         <td>Фамилия</td>
+        <td>Имя</td>
         <td>Отчество</td>
         <td>Возраст</td>
     </tr>
@@ -35,9 +35,9 @@
     <tr>
         <td><%= person.getId()%>
         </td>
-        <td><%= person.getName()%>
-        </td>
         <td><%= person.getSurname()%>
+        </td>
+        <td><%= person.getName()%>
         </td>
         <td><%= person.getPatronymic()%>
         </td>

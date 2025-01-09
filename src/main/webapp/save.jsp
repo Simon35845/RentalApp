@@ -10,13 +10,13 @@
       method="post"
       action="<%= ServletConstants.PERSONS_SAVE_SERVLET%>">
     <label>
-        Введите имя:
-        <input name="<%= ServletConstants.PERSON_NAME_PARAM%>" type="text" required>
+        Введите фамилию:
+        <input name="<%= ServletConstants.PERSON_SURNAME_PARAM%>" type="text" required>
     </label>
     <br/>
     <label>
-        Введите фамилию:
-        <input name="<%= ServletConstants.PERSON_SURNAME_PARAM%>" type="text" required>
+        Введите имя:
+        <input name="<%= ServletConstants.PERSON_NAME_PARAM%>" type="text" required>
     </label>
     <br/>
     <label>

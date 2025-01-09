@@ -16,14 +16,6 @@
            value="<%= p.getId()%>"
            required>
     <label>
-        Изменить имя:
-        <input name="<%= ServletConstants.PERSON_NAME_PARAM%>"
-               type="text"
-               value="<%= p.getName()%>"
-               required>
-    </label>
-    <br/>
-    <label>
         Изменить фамилию:
         <input name="<%= ServletConstants.PERSON_SURNAME_PARAM%>"
                type="text"
@@ -31,6 +23,13 @@
                required>
     </label>
     <br/>
+    <label>
+        Изменить имя:
+        <input name="<%= ServletConstants.PERSON_NAME_PARAM%>"
+               type="text"
+               value="<%= p.getName()%>"
+               required>
+    </label>
     <br/>
     <label>
         Изменить отчество:
