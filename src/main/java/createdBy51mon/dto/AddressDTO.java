@@ -17,5 +17,5 @@ public class AddressDTO {
     private String city;
     private String street;
     private String houseNumber;
-    private Set<ApartmentDTO> apartment = new HashSet();
+    private Set<ApartmentDTO> apartments = new HashSet();
 }

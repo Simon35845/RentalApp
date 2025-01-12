@@ -31,6 +31,6 @@ public class AddressEntity {
     private String houseNumber;
 
     @OneToMany(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<AddressEntity> apartment = new HashSet<>();
+    private Set<ApartmentEntity> apartments = new HashSet<>();
 }
 
