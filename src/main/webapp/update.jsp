@@ -5,6 +5,7 @@
 <head>
     <title>Update person</title>
 </head>
+
 <body>
 <%PersonDTO p = (PersonDTO) request.getAttribute(ServletConstants.PERSON_ATTRIBUTE); %>
 <h2>Изменение записей людей</h2>
@@ -43,12 +44,13 @@
         Изменить возраст:
         <input name="<%= ServletConstants.PERSON_AGE_PARAM%>"
                type="text"
-               value="<%= p.getAge()%>">
+               value="<%= p.getAge()%>"
+               required>
     </label>
     <br/>
     <button>Сохранить!</button>
 </form>
 <br/>
-<a href="<%= ServletConstants.PERSONS_LIST_SERVLET%>">ВЕРНУТЬСЯ К СПИСКУ ЛИЦ</a><br/>
+<a href="<%= ServletConstants.PERSONS_LIST_SERVLET %>">Вернуться к списку лиц</a><br/>
 </body>
 </html>

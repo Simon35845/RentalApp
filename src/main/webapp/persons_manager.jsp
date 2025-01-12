@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-<a href="<%= ServletConstants.PERSONS_SAVE_SERVLET%>"><h1>СТРАНИЦА СОХРАНЕНИЯ ЗАПИСЕЙ ЛЮДЕЙ</h1></a><br/>
+<a href="<%= ServletConstants.PERSONS_SAVE_SERVLET%>"><h3>Добавить запись в список</h3></a><br/>
 <br/>
 <h1>Список лиц</h1>
 <table>

@@ -29,13 +29,13 @@ public class SavePersonServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        personService.save(MappingUtil.mapPerson(req));
+        this.personService.save(MappingUtil.mapPerson(req));
         resp.sendRedirect(ServletConstants.PERSONS_LIST_SERVLET);
     }
 
     @Override
     public void destroy() {
-        this.personService.close();
+        this.personService.closeDao();
         HibernateUtil.close();
         super.destroy();
     }

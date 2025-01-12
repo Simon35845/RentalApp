@@ -21,13 +21,13 @@ public class UpdatePersonServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        Integer id = ServletUtil.getIntegerParam(req, ServletConstants.PERSON_ID_PARAM);
+        Integer id = ServletParamUtil.getIntegerParam(req, ServletConstants.PERSON_ID_PARAM);
         if (id == null) {
-            resp.sendRedirect(req.getContextPath() + ServletConstants.ERROR_JSP);
+            resp.sendRedirect(ServletConstants.ERROR_JSP);
             return;
         }
 
-        PersonDTO personDTO = personService.get(id);
+        PersonDTO personDTO = this.personService.get(id);
         req.setAttribute(ServletConstants.PERSON_ATTRIBUTE, personDTO);
 
         RequestDispatcher requestDispatcher = getServletContext()
@@ -39,8 +39,8 @@ public class UpdatePersonServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        personService.update(
-                ServletUtil.getIntegerParam(req, ServletConstants.PERSON_ID_PARAM),
+        this.personService.update(
+                ServletParamUtil.getIntegerParam(req, ServletConstants.PERSON_ID_PARAM),
                 MappingUtil.mapPerson(req));
 
         resp.sendRedirect(ServletConstants.PERSONS_LIST_SERVLET);
@@ -48,7 +48,7 @@ public class UpdatePersonServlet extends HttpServlet {
 
     @Override
     public void destroy() {
-        this.personService.close();
+        this.personService.closeDao();
         HibernateUtil.close();
         super.destroy();
     }

@@ -7,6 +7,6 @@
 <body>
 <h1>Если вы видите эту страницу, значит вы где-то накосячили)</h1>
 <br/>
-<a href="<%= ServletConstants.PERSONS_LIST_SERVLET%>>">ВЕРНУТЬСЯ К СПИСКУ ЛИЦ</a><br/>
+<a href="<%= ServletConstants.PERSONS_LIST_SERVLET %>">Вернуться к списку лиц</a><br/>
 </body>
 </html>

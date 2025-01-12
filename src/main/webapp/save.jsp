@@ -32,7 +32,7 @@
     <button>Сохранить!</button>
 </form>
 <br/>
-<a href="<%= ServletConstants.PERSONS_LIST_SERVLET%>">ВЕРНУТЬСЯ К СПИСКУ ЛИЦ</a><br/>
+<a href="<%= ServletConstants.PERSONS_LIST_SERVLET %>">Вернуться к списку лиц</a><br/>
 <p>*Данные поля заполнять необязательно</p>
 </body>
 </html>

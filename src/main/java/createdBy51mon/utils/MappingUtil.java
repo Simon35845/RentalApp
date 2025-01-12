@@ -13,10 +13,10 @@ public class MappingUtil {
      */
     public static PersonDTO mapPerson(HttpServletRequest req){
         return PersonDTO.builder()
-                .name(ServletUtil.getStringParam(req, ServletConstants.PERSON_NAME_PARAM))
-                .surname(ServletUtil.getStringParam(req, ServletConstants.PERSON_SURNAME_PARAM))
-                .patronymic(ServletUtil.getStringParam(req, ServletConstants.PERSON_PATRONYMIC_PARAM))
-                .age(ServletUtil.getIntegerParam(req, ServletConstants.PERSON_AGE_PARAM))
+                .name(ServletParamUtil.getStringParam(req, ServletConstants.PERSON_NAME_PARAM))
+                .surname(ServletParamUtil.getStringParam(req, ServletConstants.PERSON_SURNAME_PARAM))
+                .patronymic(ServletParamUtil.getStringParam(req, ServletConstants.PERSON_PATRONYMIC_PARAM))
+                .age(ServletParamUtil.getIntegerParam(req, ServletConstants.PERSON_AGE_PARAM))
                 .build();
     }
 }

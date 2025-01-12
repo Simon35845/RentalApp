@@ -46,7 +46,7 @@ public class PersonServiceImpl implements CommonService {
     }
 
     @Override
-    public void close(){
+    public void closeDao(){
         personDAO.close();
     }
 }

@@ -52,5 +52,5 @@ public interface CommonService {
     /**
      * Закрывает сессию у объекта DAO
      */
-    void close();
+    void closeDao();
 }

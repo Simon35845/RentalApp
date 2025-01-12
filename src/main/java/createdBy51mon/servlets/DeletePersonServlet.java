@@ -5,7 +5,7 @@ import createdBy51mon.service.impl.PersonServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
 import createdBy51mon.utils.ServletConstants;
-import createdBy51mon.utils.ServletUtil;
+import createdBy51mon.utils.ServletParamUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,13 +23,13 @@ public class DeletePersonServlet extends HttpServlet {
         EncodingUtil.setUTF8(req, resp);
 
         this.personService.delete(
-                ServletUtil.getIntegerParam(req, ServletConstants.PERSON_ID_PARAM));
+                ServletParamUtil.getIntegerParam(req, ServletConstants.PERSON_ID_PARAM));
         resp.sendRedirect(ServletConstants.PERSONS_LIST_SERVLET);
     }
 
     @Override
     public void destroy() {
-        this.personService.close();
+        this.personService.closeDao();
         HibernateUtil.close();
         super.destroy();
     }

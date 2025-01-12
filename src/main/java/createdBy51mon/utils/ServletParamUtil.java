@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
-public class ServletUtil {
+public class ServletParamUtil {
     /**
      * Получает из объекта HttpServletRequest параметр по его имени
      *

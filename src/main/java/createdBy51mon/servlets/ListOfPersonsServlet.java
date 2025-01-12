@@ -21,9 +21,9 @@ public class ListOfPersonsServlet extends HttpServlet {
     private final CommonService personService = new PersonServiceImpl();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-        EncodingUtil.setUTF8(req, resp);
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         final List<PersonDTO> personDTOList = this.personService.getAll();
+        EncodingUtil.setUTF8(req, resp);
 
         req.setAttribute(ServletConstants.PERSONS_LIST_ATTRIBUTE, personDTOList);
         RequestDispatcher requestDispatcher = getServletContext()
@@ -34,7 +34,7 @@ public class ListOfPersonsServlet extends HttpServlet {
 
     @Override
     public void destroy() {
-        this.personService.close();
+        this.personService.closeDao();
         HibernateUtil.close();
         super.destroy();
     }
