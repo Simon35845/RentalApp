@@ -6,7 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Builder
 @Data
@@ -30,6 +31,6 @@ public class AddressEntity {
     private String houseNumber;
 
     @OneToMany(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<AddressEntity> apartment;
+    private Set<AddressEntity> apartment = new HashSet<>();
 }
 
