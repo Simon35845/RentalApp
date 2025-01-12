@@ -1,17 +1,17 @@
 package createdBy51mon.dao.Impl;
 
-import createdBy51mon.dao.DAO;
+import createdBy51mon.dao.CommonDAO;
 import createdBy51mon.utils.ExecutorUtil;
 import createdBy51mon.utils.HibernateUtil;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class DAOImpl<T> implements DAO<T> {
+public class CommonDAOImpl<T> implements CommonDAO<T> {
     private final EntityManager entityManager;
     private final Class<T> clazz;
 
-    public DAOImpl(Class<T> clazz) {
+    public CommonDAOImpl(Class<T> clazz) {
         this.entityManager = HibernateUtil.getEntityManager();
         this.clazz = clazz;
     }

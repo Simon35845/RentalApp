@@ -2,7 +2,7 @@ package createdBy51mon.dao;
 
 import java.util.List;
 
-public interface DAO <T>{
+public interface CommonDAO<T>{
     /**
      * Метод сохраняет новую строку таблицы в БД. Строка может содержать различные параметры.
      * @param t строка таблицы, представленная объектом класса Entity {@code <T>}.
