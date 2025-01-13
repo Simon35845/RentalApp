@@ -4,6 +4,7 @@ import createdBy51mon.dto.PersonDTO;
 import createdBy51mon.service.CommonService;
 import createdBy51mon.service.impl.PersonServiceImpl;
 import createdBy51mon.utils.*;
+import createdBy51mon.utils.ServletConstants.PersonServletConstants;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,25 +14,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "updatePersonServlet", value = "/update")
+@WebServlet(name = "updatePersonServlet", value = "/person_update")
 public class UpdatePersonServlet extends HttpServlet {
-    private final CommonService personService = new PersonServiceImpl();
+    private final CommonService<PersonDTO> personService = new PersonServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        Integer id = ServletParamUtil.getIntegerParam(req, ServletConstants.PERSON_ID_PARAM);
+        Integer id = ServletParamUtil.getIntegerParam(req, PersonServletConstants.PERSON_ID_PARAM);
         if (id == null) {
-            resp.sendRedirect(ServletConstants.ERROR_JSP);
+            resp.sendRedirect(PersonServletConstants.ERROR_JSP);
             return;
         }
 
         PersonDTO personDTO = this.personService.get(id);
-        req.setAttribute(ServletConstants.PERSON_ATTRIBUTE, personDTO);
+        req.setAttribute(PersonServletConstants.PERSON_ATTRIBUTE, personDTO);
 
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher(ServletConstants.PERSONS_UPDATE_JSP);
+                .getRequestDispatcher(PersonServletConstants.PERSONS_UPDATE_JSP);
         requestDispatcher.forward(req, resp);
     }
 
@@ -40,10 +41,10 @@ public class UpdatePersonServlet extends HttpServlet {
         EncodingUtil.setUTF8(req, resp);
 
         this.personService.update(
-                ServletParamUtil.getIntegerParam(req, ServletConstants.PERSON_ID_PARAM),
+                ServletParamUtil.getIntegerParam(req, PersonServletConstants.PERSON_ID_PARAM),
                 MappingUtil.mapPerson(req));
 
-        resp.sendRedirect(ServletConstants.PERSONS_LIST_SERVLET);
+        resp.sendRedirect(PersonServletConstants.PERSONS_LIST_SERVLET);
     }
 
     @Override

@@ -1,4 +1,4 @@
-<%@ page import="createdBy51mon.utils.ServletConstants" %>
+<%@ page import="createdBy51mon.utils.ServletConstants.PersonServletConstants" %>
 <%@ page import="createdBy51mon.dto.PersonDTO" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -18,7 +18,7 @@
     </style>
 </head>
 <body>
-<a href="<%= ServletConstants.PERSONS_SAVE_SERVLET%>"><h3>Добавить запись в список</h3></a><br/>
+<a href="<%= PersonServletConstants.PERSONS_SAVE_SERVLET%>"><h3>Добавить запись в список</h3></a><br/>
 <br/>
 <h1>Список лиц</h1>
 <table>
@@ -29,7 +29,7 @@
         <td>Отчество</td>
         <td>Возраст</td>
     </tr>
-<% List<PersonDTO> persons = (List<PersonDTO>) request.getAttribute(ServletConstants.PERSONS_LIST_ATTRIBUTE);
+<% List<PersonDTO> persons = (List<PersonDTO>) request.getAttribute(PersonServletConstants.PERSONS_LIST_ATTRIBUTE);
         for (PersonDTO person : persons) {
     %>
     <tr>
@@ -46,8 +46,8 @@
         <td>
             <form name="delete"
                   method="post"
-                  action="<%= ServletConstants.PERSONS_DELETE_SERVLET%>">
-                <button name="<%= ServletConstants.PERSON_ID_PARAM%>"
+                  action="<%= PersonServletConstants.PERSONS_DELETE_SERVLET%>">
+                <button name="<%= PersonServletConstants.PERSON_ID_PARAM%>"
                         value="<%= person.getId()%>">
                     Удалить запись
                 </button>
@@ -56,8 +56,8 @@
         <td>
             <form name="update"
                   method="get"
-                  action="<%= ServletConstants.PERSONS_UPDATE_SERVLET%>">
-                <button name="<%= ServletConstants.PERSON_ID_PARAM%>"
+                  action="<%= PersonServletConstants.PERSONS_UPDATE_SERVLET%>">
+                <button name="<%= PersonServletConstants.PERSON_ID_PARAM%>"
                         value="<%= person.getId()%>">
                     Обновить запись
                 </button>

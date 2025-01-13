@@ -1,6 +1,7 @@
 package createdBy51mon.utils;
 
 import createdBy51mon.dto.PersonDTO;
+import createdBy51mon.utils.ServletConstants.PersonServletConstants;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -13,10 +14,10 @@ public class MappingUtil {
      */
     public static PersonDTO mapPerson(HttpServletRequest req){
         return PersonDTO.builder()
-                .name(ServletParamUtil.getStringParam(req, ServletConstants.PERSON_NAME_PARAM))
-                .surname(ServletParamUtil.getStringParam(req, ServletConstants.PERSON_SURNAME_PARAM))
-                .patronymic(ServletParamUtil.getStringParam(req, ServletConstants.PERSON_PATRONYMIC_PARAM))
-                .age(ServletParamUtil.getIntegerParam(req, ServletConstants.PERSON_AGE_PARAM))
+                .name(ServletParamUtil.getStringParam(req, PersonServletConstants.PERSON_NAME_PARAM))
+                .surname(ServletParamUtil.getStringParam(req, PersonServletConstants.PERSON_SURNAME_PARAM))
+                .patronymic(ServletParamUtil.getStringParam(req, PersonServletConstants.PERSON_PATRONYMIC_PARAM))
+                .age(ServletParamUtil.getIntegerParam(req, PersonServletConstants.PERSON_AGE_PARAM))
                 .build();
     }
 }

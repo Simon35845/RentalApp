@@ -1,5 +1,5 @@
 <%@ page import="createdBy51mon.dto.PersonDTO" %>
-<%@ page import="createdBy51mon.utils.ServletConstants" %>
+<%@ page import="createdBy51mon.utils.ServletConstants.PersonServletConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
@@ -7,18 +7,18 @@
 </head>
 
 <body>
-<%PersonDTO p = (PersonDTO) request.getAttribute(ServletConstants.PERSON_ATTRIBUTE); %>
+<%PersonDTO p = (PersonDTO) request.getAttribute(PersonServletConstants.PERSON_ATTRIBUTE); %>
 <h2>Изменение записей людей</h2>
 <form name="update"
       method="post"
-      action="<%= ServletConstants.PERSONS_UPDATE_SERVLET%>">
-    <input name="<%= ServletConstants.PERSON_ID_PARAM%>"
+      action="<%= PersonServletConstants.PERSONS_UPDATE_SERVLET%>">
+    <input name="<%= PersonServletConstants.PERSON_ID_PARAM%>"
            type="hidden"
            value="<%= p.getId()%>"
            required>
     <label>
         Изменить фамилию:
-        <input name="<%= ServletConstants.PERSON_SURNAME_PARAM%>"
+        <input name="<%= PersonServletConstants.PERSON_SURNAME_PARAM%>"
                type="text"
                value="<%= p.getSurname()%>"
                required>
@@ -26,7 +26,7 @@
     <br/>
     <label>
         Изменить имя:
-        <input name="<%= ServletConstants.PERSON_NAME_PARAM%>"
+        <input name="<%= PersonServletConstants.PERSON_NAME_PARAM%>"
                type="text"
                value="<%= p.getName()%>"
                required>
@@ -34,7 +34,7 @@
     <br/>
     <label>
         Изменить отчество:
-        <input name="<%= ServletConstants.PERSON_PATRONYMIC_PARAM%>"
+        <input name="<%= PersonServletConstants.PERSON_PATRONYMIC_PARAM%>"
                type="text"
                value="<%= p.getPatronymic()%>"
                required>
@@ -42,7 +42,7 @@
     <br/>
     <label>
         Изменить возраст:
-        <input name="<%= ServletConstants.PERSON_AGE_PARAM%>"
+        <input name="<%= PersonServletConstants.PERSON_AGE_PARAM%>"
                type="text"
                value="<%= p.getAge()%>"
                required>
@@ -51,6 +51,6 @@
     <button>Сохранить!</button>
 </form>
 <br/>
-<a href="<%= ServletConstants.PERSONS_LIST_SERVLET %>">Вернуться к списку лиц</a><br/>
+<a href="<%= PersonServletConstants.PERSONS_LIST_SERVLET %>">Вернуться к списку лиц</a><br/>
 </body>
 </html>
