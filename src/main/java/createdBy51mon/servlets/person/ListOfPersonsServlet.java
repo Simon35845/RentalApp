@@ -1,4 +1,4 @@
-package createdBy51mon.servlets;
+package createdBy51mon.servlets.person;
 
 import createdBy51mon.dto.PersonDTO;
 import createdBy51mon.service.CommonService;
@@ -6,27 +6,31 @@ import createdBy51mon.service.impl.PersonServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
 import createdBy51mon.utils.ServletConstants.PersonServletConstants;
-import createdBy51mon.utils.ServletParamUtil;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "deletePersonServlet", value = "/person_delete")
-public class DeletePersonServlet extends HttpServlet {
+@WebServlet(name = "listOfPersonsServlet", value = "/persons_list")
+public class ListOfPersonsServlet extends HttpServlet {
     private final CommonService<PersonDTO> personService = new PersonServiceImpl();
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        final List<PersonDTO> personDTOList = this.personService.getAll();
         EncodingUtil.setUTF8(req, resp);
 
-        this.personService.delete(
-                ServletParamUtil.getIntegerParam(req, PersonServletConstants.PERSON_ID_PARAM));
-        resp.sendRedirect(PersonServletConstants.PERSONS_LIST_SERVLET);
+        req.setAttribute(PersonServletConstants.PERSONS_LIST_ATTRIBUTE, personDTOList);
+        RequestDispatcher requestDispatcher = getServletContext()
+                .getRequestDispatcher(PersonServletConstants.PERSONS_LIST_JSP);
+        requestDispatcher.forward(req, resp);
     }
+
 
     @Override
     public void destroy() {

@@ -1,4 +1,4 @@
-package createdBy51mon.servlets;
+package createdBy51mon.servlets.person;
 
 import createdBy51mon.dto.PersonDTO;
 import createdBy51mon.service.CommonService;
@@ -14,25 +14,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "updatePersonServlet", value = "/person_update")
-public class UpdatePersonServlet extends HttpServlet {
+@WebServlet(name = "savePersonServlet", value = "/person_save")
+public class SavePersonServlet extends HttpServlet {
     private final CommonService<PersonDTO> personService = new PersonServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        Integer id = ServletParamUtil.getIntegerParam(req, PersonServletConstants.PERSON_ID_PARAM);
-        if (id == null) {
-            resp.sendRedirect(PersonServletConstants.ERROR_JSP);
-            return;
-        }
-
-        PersonDTO personDTO = this.personService.get(id);
-        req.setAttribute(PersonServletConstants.PERSON_ATTRIBUTE, personDTO);
-
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher(PersonServletConstants.PERSONS_UPDATE_JSP);
+                .getRequestDispatcher(PersonServletConstants.PERSONS_SAVE_JSP);
         requestDispatcher.forward(req, resp);
     }
 
@@ -40,10 +31,7 @@ public class UpdatePersonServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        this.personService.update(
-                ServletParamUtil.getIntegerParam(req, PersonServletConstants.PERSON_ID_PARAM),
-                MappingUtil.mapPerson(req));
-
+        this.personService.save(MappingUtil.mapPerson(req));
         resp.sendRedirect(PersonServletConstants.PERSONS_LIST_SERVLET);
     }
 
