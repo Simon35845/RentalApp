@@ -9,6 +9,6 @@
         version="4.0">
     <display-name>Rental App</display-name>
     <welcome-file-list>
-        <welcome-file>persons_list</welcome-file>
+        <welcome-file>main_page</welcome-file>
     </welcome-file-list>
 </web-app>

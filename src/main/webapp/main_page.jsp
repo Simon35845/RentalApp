@@ -1,14 +1,15 @@
 <%@ page import="createdBy51mon.utils.servlet_constants.AddressServletConstants" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.PersonServletConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<br>
+<html lang="ru">
 <head>
-    <title>Добро пожаловать в RentalApp!</title>
+    <title>RentalApp Main Page</title>
 </head>
+<h1>Добро пожаловать в RentalApp!</h1>
+<br/>
 <body>
-<a href="<%= AddressServletConstants.ADDRESSES_LIST_SERVLET %>">Список адресов</a>
+<h2><a href="<%= AddressServletConstants.ADDRESSES_LIST_SERVLET %>">Список адресов</a></h2>
 <br>
-<a href="<%= PersonServletConstants.PERSONS_LIST_SERVLET %>">Список адресов</a>
+<h2><a href="<%= PersonServletConstants.PERSONS_LIST_SERVLET %>">Список лиц</a></h2>
 </body>
 </html>

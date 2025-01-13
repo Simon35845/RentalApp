@@ -19,8 +19,6 @@
     </style>
 </head>
 <body>
-<a href="<%= AddressServletConstants.ADDRESS_SAVE_SERVLET%>"><h3>Добавить запись в список</h3></a><br/>
-<br/>
 <h1>Список адресов</h1>
 <table>
     <tr>
@@ -66,5 +64,9 @@
         }
     %>
 </table>
+<br/>
+<a href="<%= AddressServletConstants.ADDRESS_SAVE_SERVLET%>"><h3>Добавить запись в список</h3></a>
+<br/>
+<a href="<%= CommonServletConstants.MAIN_PAGE_SERVLET %>"><h3>Вернуться на главную</h3></a>
 </body>
 </html>
