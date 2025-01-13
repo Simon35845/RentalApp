@@ -1,14 +1,9 @@
-package createdBy51mon.utils;
+package createdBy51mon.utils.converters;
 
 import createdBy51mon.dto.PersonDTO;
 import createdBy51mon.entity.PersonEntity;
 
 public class PersonConverter {
-    /**
-     * Метод конвертирует {@code PersonEntity} в {@code PersonDTO}
-     * @param entity входной объект типа {@code PersonEntity}
-     * @return объект типа {@code PersonDTO}
-     */
     public static PersonDTO toDTO(PersonEntity entity) {
         if (entity == null) {
             return null;
@@ -22,11 +17,6 @@ public class PersonConverter {
                 .build();
     }
 
-    /**
-     * Метод конвертирует {@code PersonDTO} в {@code PersonEntity}
-     * @param dto входной объект типа {@code PersonDTO}
-     * @return объект типа {@code PersonEntity}
-     */
     public static PersonEntity toEntity(PersonDTO dto) {
         if (dto == null) {
             return null;
