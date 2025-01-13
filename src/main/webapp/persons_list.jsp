@@ -1,4 +1,4 @@
-<%@ page import="createdBy51mon.utils.ServletConstants.PersonServletConstants" %>
+<%@ page import="createdBy51mon.utils.servlet_constants.PersonServletConstants" %>
 <%@ page import="createdBy51mon.dto.PersonDTO" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

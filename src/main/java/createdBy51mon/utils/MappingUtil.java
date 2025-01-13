@@ -1,7 +1,7 @@
 package createdBy51mon.utils;
 
 import createdBy51mon.dto.PersonDTO;
-import createdBy51mon.utils.ServletConstants.PersonServletConstants;
+import createdBy51mon.utils.servlet_constants.PersonServletConstants;
 
 import javax.servlet.http.HttpServletRequest;
 

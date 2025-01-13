@@ -1,4 +1,4 @@
-package createdBy51mon.utils.ServletConstants;
+package createdBy51mon.utils.servlet_constants;
 
 public class PersonServletConstants {
     /**

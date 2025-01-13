@@ -5,7 +5,7 @@ import createdBy51mon.service.CommonService;
 import createdBy51mon.service.impl.PersonServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
-import createdBy51mon.utils.ServletConstants.PersonServletConstants;
+import createdBy51mon.utils.servlet_constants.PersonServletConstants;
 import createdBy51mon.utils.ServletParamUtil;
 
 import javax.servlet.ServletException;
