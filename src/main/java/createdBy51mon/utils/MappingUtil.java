@@ -1,18 +1,22 @@
 package createdBy51mon.utils;
 
+import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.dto.PersonDTO;
+import createdBy51mon.utils.servlet_constants.AddressServletConstants;
 import createdBy51mon.utils.servlet_constants.PersonServletConstants;
 
 import javax.servlet.http.HttpServletRequest;
 
 public class MappingUtil {
-    /**
-     * Создает объект типа {@code PersonDTO}, заполняя поля значениями из параметров,
-     * полученных из объекта HttpServletRequest
-     * @param req объект HttpServletRequest
-     * @return объект типа {@code PersonDTO}
-     */
-    public static PersonDTO mapPerson(HttpServletRequest req){
+    public static AddressDTO mapAddress(HttpServletRequest req) {
+        return AddressDTO.builder()
+                .city(ServletParamUtil.getStringParam(req, AddressServletConstants.ADDRESS_CITY_PARAM))
+                .street(ServletParamUtil.getStringParam(req, AddressServletConstants.ADDRESS_STREET_PARAM))
+                .houseNumber(ServletParamUtil.getIntegerParam(req, AddressServletConstants.ADDRESS_HOUSE_NUMBER_PARAM))
+                .build();
+    }
+
+    public static PersonDTO mapPerson(HttpServletRequest req) {
         return PersonDTO.builder()
                 .name(ServletParamUtil.getStringParam(req, PersonServletConstants.PERSON_NAME_PARAM))
                 .surname(ServletParamUtil.getStringParam(req, PersonServletConstants.PERSON_SURNAME_PARAM))

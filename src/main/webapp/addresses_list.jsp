@@ -1,7 +1,7 @@
-<%@ page import="createdBy51mon.utils.servlet_constants.PersonServletConstants" %>
-<%@ page import="createdBy51mon.dto.PersonDTO" %>
+<%@ page import="createdBy51mon.dto.AddressDTO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.CommonServletConstants" %>
+<%@ page import="createdBy51mon.utils.servlet_constants.AddressServletConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
@@ -19,37 +19,34 @@
     </style>
 </head>
 <body>
-<a href="<%= PersonServletConstants.PERSON_SAVE_SERVLET%>"><h3>Добавить запись в список</h3></a><br/>
+<a href="<%= AddressServletConstants.ADDRESS_SAVE_SERVLET%>"><h3>Добавить запись в список</h3></a><br/>
 <br/>
-<h1>Список лиц</h1>
+<h1>Список адресов</h1>
 <table>
     <tr>
         <td>ID</td>
-        <td>Фамилия</td>
-        <td>Имя</td>
-        <td>Отчество</td>
-        <td>Возраст</td>
+        <td>Город</td>
+        <td>Улица</td>
+        <td>Номер дома</td>
     </tr>
-    <% List<PersonDTO> persons = (List<PersonDTO>) request.getAttribute(PersonServletConstants.PERSONS_LIST_ATTRIBUTE);
-        for (PersonDTO person : persons) {
+    <% List<AddressDTO> addresses = (List<AddressDTO>) request.getAttribute(AddressServletConstants.ADDRESSES_LIST_ATTRIBUTE);
+        for (AddressDTO address : addresses) {
     %>
     <tr>
-        <td><%= person.getId()%>
+        <td><%= address.getId()%>
         </td>
-        <td><%= person.getSurname()%>
+        <td><%= address.getCity()%>
         </td>
-        <td><%= person.getName()%>
+        <td><%= address.getStreet()%>
         </td>
-        <td><%= person.getPatronymic()%>
-        </td>
-        <td><%= person.getAge()%>
+        <td><%= address.getHouseNumber()%>
         </td>
         <td>
             <form name="delete"
                   method="post"
-                  action="<%= PersonServletConstants.PERSON_DELETE_SERVLET%>">
+                  action="<%= AddressServletConstants.ADDRESS_DELETE_SERVLET%>">
                 <button name="<%= CommonServletConstants.ID_PARAM%>"
-                        value="<%= person.getId()%>">
+                        value="<%= address.getId()%>">
                     Удалить запись
                 </button>
             </form>
@@ -57,9 +54,9 @@
         <td>
             <form name="update"
                   method="get"
-                  action="<%= PersonServletConstants.PERSON_UPDATE_SERVLET%>">
+                  action="<%= AddressServletConstants.ADDRESS_UPDATE_SERVLET%>">
                 <button name="<%= CommonServletConstants.ID_PARAM%>"
-                        value="<%= person.getId()%>">
+                        value="<%= address.getId()%>">
                     Обновить запись
                 </button>
             </form>

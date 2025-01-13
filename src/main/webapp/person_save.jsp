@@ -8,7 +8,7 @@
 <h2>Сохранение записей людей</h2>
 <form name="save"
       method="post"
-      action="<%= PersonServletConstants.PERSONS_SAVE_SERVLET%>">
+      action="<%= PersonServletConstants.PERSON_SAVE_SERVLET%>">
     <label>
         Введите фамилию:
         <input name="<%= PersonServletConstants.PERSON_SURNAME_PARAM%>" type="text" required>

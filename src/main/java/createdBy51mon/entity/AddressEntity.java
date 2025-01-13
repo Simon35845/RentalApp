@@ -27,8 +27,8 @@ public class AddressEntity {
     @Column
     private String street;
 
-    @Column
-    private String houseNumber;
+    @Column(name = "house_number")
+    private Integer houseNumber;
 
     @OneToMany(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<ApartmentEntity> apartments = new HashSet<>();

@@ -1,11 +1,14 @@
-package createdBy51mon.servlets.person;
+package createdBy51mon.servlets.address;
 
-import createdBy51mon.dto.PersonDTO;
+import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.service.CommonService;
-import createdBy51mon.service.impl.PersonServiceImpl;
-import createdBy51mon.utils.*;
+import createdBy51mon.service.impl.AddressServiceImpl;
+import createdBy51mon.utils.EncodingUtil;
+import createdBy51mon.utils.HibernateUtil;
+import createdBy51mon.utils.MappingUtil;
+import createdBy51mon.utils.ServletParamUtil;
+import createdBy51mon.utils.servlet_constants.AddressServletConstants;
 import createdBy51mon.utils.servlet_constants.CommonServletConstants;
-import createdBy51mon.utils.servlet_constants.PersonServletConstants;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,9 +18,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "updatePersonServlet", value = "/person_update")
-public class UpdatePersonServlet extends HttpServlet {
-    private final CommonService<PersonDTO> personService = new PersonServiceImpl();
+@WebServlet(name = "updateAddressServlet", value = "/address_update")
+public class UpdateAddressServlet extends HttpServlet{
+    private final CommonService<AddressDTO> addressService = new AddressServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,11 +32,11 @@ public class UpdatePersonServlet extends HttpServlet {
             return;
         }
 
-        PersonDTO personDTO = this.personService.get(id);
-        req.setAttribute(PersonServletConstants.PERSON_ATTRIBUTE, personDTO);
+        AddressDTO addressDTO = this.addressService.get(id);
+        req.setAttribute(AddressServletConstants.ADDRESS_ATTRIBUTE, addressDTO);
 
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher(PersonServletConstants.PERSONS_UPDATE_JSP);
+                .getRequestDispatcher(AddressServletConstants.ADDRESS_UPDATE_JSP);
         requestDispatcher.forward(req, resp);
     }
 
@@ -41,16 +44,16 @@ public class UpdatePersonServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        this.personService.update(
+        this.addressService.update(
                 ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM),
-                MappingUtil.mapPerson(req));
+                MappingUtil.mapAddress(req));
 
-        resp.sendRedirect(PersonServletConstants.PERSONS_LIST_SERVLET);
+        resp.sendRedirect(AddressServletConstants.ADDRESSES_LIST_SERVLET);
     }
 
     @Override
     public void destroy() {
-        this.personService.closeDao();
+        this.addressService.closeDao();
         HibernateUtil.close();
         super.destroy();
     }

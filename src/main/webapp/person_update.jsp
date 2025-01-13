@@ -1,5 +1,6 @@
 <%@ page import="createdBy51mon.dto.PersonDTO" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.PersonServletConstants" %>
+<%@ page import="createdBy51mon.utils.servlet_constants.CommonServletConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
@@ -7,20 +8,20 @@
 </head>
 
 <body>
-<%PersonDTO p = (PersonDTO) request.getAttribute(PersonServletConstants.PERSON_ATTRIBUTE); %>
+<%PersonDTO person = (PersonDTO) request.getAttribute(PersonServletConstants.PERSON_ATTRIBUTE); %>
 <h2>Изменение записей людей</h2>
 <form name="update"
       method="post"
-      action="<%= PersonServletConstants.PERSONS_UPDATE_SERVLET%>">
-    <input name="<%= PersonServletConstants.PERSON_ID_PARAM%>"
+      action="<%= PersonServletConstants.PERSON_UPDATE_SERVLET%>">
+    <input name="<%= CommonServletConstants.ID_PARAM%>"
            type="hidden"
-           value="<%= p.getId()%>"
+           value="<%= person.getId()%>"
            required>
     <label>
         Изменить фамилию:
         <input name="<%= PersonServletConstants.PERSON_SURNAME_PARAM%>"
                type="text"
-               value="<%= p.getSurname()%>"
+               value="<%= person.getSurname()%>"
                required>
     </label>
     <br/>
@@ -28,7 +29,7 @@
         Изменить имя:
         <input name="<%= PersonServletConstants.PERSON_NAME_PARAM%>"
                type="text"
-               value="<%= p.getName()%>"
+               value="<%= person.getName()%>"
                required>
     </label>
     <br/>
@@ -36,7 +37,7 @@
         Изменить отчество:
         <input name="<%= PersonServletConstants.PERSON_PATRONYMIC_PARAM%>"
                type="text"
-               value="<%= p.getPatronymic()%>"
+               value="<%= person.getPatronymic()%>"
                required>
     </label>
     <br/>
@@ -44,7 +45,7 @@
         Изменить возраст:
         <input name="<%= PersonServletConstants.PERSON_AGE_PARAM%>"
                type="text"
-               value="<%= p.getAge()%>"
+               value="<%= person.getAge()%>"
                required>
     </label>
     <br/>
