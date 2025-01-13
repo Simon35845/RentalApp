@@ -4,15 +4,15 @@ import createdBy51mon.dto.PersonDTO;
 
 import java.util.List;
 
-public interface CommonService {
+public interface CommonService<T> {
     /**
      * Получает из сервлета DTO, конвертирует в Entity
      * и передает на слой DAO для сохранения
      *
-     * @param personDTO DTO, который нужно записать в БД
+     * @param t DTO, который нужно записать в БД
      * @return записанный в БД объект с id
      */
-    PersonDTO save(PersonDTO personDTO);
+    T save(T t);
 
     /**
      * Получает из слоя DAO объект Entity по id,
@@ -21,7 +21,7 @@ public interface CommonService {
      * @param id идентификатор записи в БД
      * @return полученная запись или null в случае, если запись не найдена
      */
-    PersonDTO get(Integer id);
+    T get(Integer id);
 
     /**
      * Получает из слоя DAO список всех объектов Entity в БД,
@@ -29,16 +29,16 @@ public interface CommonService {
      *
      * @return список объектов DTO
      */
-    List<PersonDTO> getAll();
+    List<T> getAll();
 
     /**
      * Получает из сервлета DTO и id, конвертирует DTO в Entity
      * и передает на слой DAO для обновления записи в БД
      * @param id идентификатор записи в БД
-     * @param personDTO DTO, который нужно обновить в БД
+     * @param t DTO, который нужно обновить в БД
      * @return обновленный в БД объект
      */
-    PersonDTO update(Integer id, PersonDTO personDTO);
+    T update(Integer id, T t);
 
     /**
      * С помощью слоя DAO инициирует удаление объекта из БД
