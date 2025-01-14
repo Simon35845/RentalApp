@@ -13,7 +13,7 @@ public class ApartmentConverter{
                 .number(entity.getNumber())
                 .floor(entity.getFloor())
                 .countOfRooms(entity.getCountOfRooms())
-                .address(entity.getAddress())
+                //.address(entity.getAddress())
                 .build();
     }
 
@@ -26,7 +26,7 @@ public class ApartmentConverter{
                 .number(dto.getNumber())
                 .floor(dto.getFloor())
                 .countOfRooms(dto.getCountOfRooms())
-                .address(dto.getAddress())
+                //.address(dto.getAddress())
                 .build();
     }
 }
