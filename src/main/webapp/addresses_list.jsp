@@ -7,6 +7,10 @@
 <head>
     <title>Persons List</title>
     <style>
+        body {
+            margin: 20px;
+        }
+
         table {
             border-collapse: collapse;
         }
@@ -16,57 +20,119 @@
             padding: 8px;
             text-align: center;
         }
+
+        th {
+            background-color: rgba(204, 225, 216, 0.7);
+        }
+
+        td {
+            background-color: rgba(230, 230, 200, 0.78);
+        }
+
+        .update-button, .delete-button, .save-link-button, .main-link-button {
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            white-space: nowrap;
+        }
+
+        .update-button {
+            background-color: #FF881F;
+        }
+
+        .delete-button {
+            background-color: #f44336;
+        }
+
+        .save-link-button {
+            display: inline-block;
+            background-color: #43a600;
+        }
+
+        .main-link-button {
+            display: inline-block;
+            background-color: #007BFF;
+        }
+
+        .button-container-1 {
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+            gap: 30px;
+        }
+
+        .button-container-2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .update-button:hover,
+        .delete-button:hover,
+        .save-link-button:hover,
+        .main-link-button:hover{
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
-<h1>Список адресов</h1>
+<h2>Список адресов</h2>
 <table>
     <tr>
-        <td>ID</td>
-        <td>Город</td>
-        <td>Улица</td>
-        <td>Номер дома</td>
+        <th>ID</th>
+        <th>Город</th>
+        <th>Улица</th>
+        <th>Номер дома</th>
+        <th>Действия</th>
     </tr>
     <% List<AddressDTO> addresses = (List<AddressDTO>) request.getAttribute(AddressServletConstants.ADDRESSES_LIST_ATTRIBUTE);
         for (AddressDTO address : addresses) {
     %>
     <tr>
-        <td><%= address.getId()%>
+        <td><%= address.getId() %>
         </td>
-        <td><%= address.getCity()%>
+        <td><%= address.getCity() %>
         </td>
-        <td><%= address.getStreet()%>
+        <td><%= address.getStreet() %>
         </td>
-        <td><%= address.getHouseNumber()%>
-        </td>
-        <td>
-            <form name="delete"
-                  method="post"
-                  action="<%= AddressServletConstants.ADDRESS_DELETE_SERVLET%>">
-                <button name="<%= CommonServletConstants.ID_PARAM%>"
-                        value="<%= address.getId()%>">
-                    Удалить запись
-                </button>
-            </form>
+        <td><%= address.getHouseNumber() %>
         </td>
         <td>
+            <div class="button-container-2">
             <form name="update"
                   method="get"
-                  action="<%= AddressServletConstants.ADDRESS_UPDATE_SERVLET%>">
-                <button name="<%= CommonServletConstants.ID_PARAM%>"
-                        value="<%= address.getId()%>">
-                    Обновить запись
+                  action="<%= AddressServletConstants.ADDRESS_UPDATE_SERVLET %>">
+                <button class="update-button"
+                        name="<%= CommonServletConstants.ID_PARAM %>"
+                        value="<%= address.getId() %>">
+                    Изменить
                 </button>
             </form>
+            <form name="delete"
+                  method="post"
+                  action="<%= AddressServletConstants.ADDRESS_DELETE_SERVLET %>">
+                <button class="delete-button"
+                        name="<%= CommonServletConstants.ID_PARAM %>"
+                        value="<%= address.getId() %>">
+                    Удалить
+                </button>
+            </form>
+            </div>
         </td>
     </tr>
     <%
         }
     %>
 </table>
-<br/>
-<a href="<%= AddressServletConstants.ADDRESS_SAVE_SERVLET%>"><h3>Добавить запись в список</h3></a>
-<br/>
-<a href="<%= CommonServletConstants.MAIN_PAGE_SERVLET %>"><h3>Вернуться на главную</h3></a>
+<div class="button-container-1">
+    <a class="save-link-button" href="<%= AddressServletConstants.ADDRESS_SAVE_SERVLET %>">Добавить запись</a>
+    <br/>
+    <a class="main-link-button" href="<%= CommonServletConstants.MAIN_PAGE_SERVLET %>">Вернуться на главную</a>
+</div>
 </body>
 </html>
