@@ -13,16 +13,16 @@ public class AddressConverter {
         if (entity == null) {
             return null;
         }
-        Set<ApartmentDTO> dtos = entity.getApartments().stream()
+/*        Set<ApartmentDTO> dtos = entity.getApartments().stream()
                 .map(ApartmentConverter::toDTO)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toSet());*/
 
         return AddressDTO.builder()
                 .id(entity.getId())
                 .city(entity.getCity())
                 .street(entity.getStreet())
                 .houseNumber(entity.getHouseNumber())
-                .apartments(dtos)
+                //.apartments(dtos)
                 .build();
     }
 
@@ -30,16 +30,16 @@ public class AddressConverter {
         if (dto == null) {
             return null;
         }
-        Set<ApartmentEntity> entities = dto.getApartments().stream()
+/*        Set<ApartmentEntity> entities = dto.getApartments().stream()
                 .map(ApartmentConverter::toEntity)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toSet());*/
 
         return AddressEntity.builder()
                 .id(dto.getId())
                 .city(dto.getCity())
                 .street(dto.getStreet())
                 .houseNumber(dto.getHouseNumber())
-                .apartments(entities)
+                //.apartments(entities)
                 .build();
     }
 }
