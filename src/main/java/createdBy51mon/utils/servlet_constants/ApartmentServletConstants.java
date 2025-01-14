@@ -4,7 +4,7 @@ public class ApartmentServletConstants {
     /**
      * Servlet constants
      */
-    public static final String APARTMENTS_LIST_SERVLET = "apartment_list";
+    public static final String APARTMENTS_LIST_SERVLET = "apartments_list";
     public static final String APARTMENT_SAVE_SERVLET = "apartment_save";
     public static final String APARTMENT_UPDATE_SERVLET = "apartment_update";
     public static final String APARTMENT_DELETE_SERVLET = "apartment_delete";
