@@ -2,6 +2,7 @@ package createdBy51mon.service.impl;
 
 import createdBy51mon.dao.ApartmentDAO;
 import createdBy51mon.dao.Impl.ApartmentDAOImpl;
+import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.dto.ApartmentDTO;
 import createdBy51mon.entity.ApartmentEntity;
 import createdBy51mon.service.CommonService;
@@ -12,9 +13,16 @@ import java.util.stream.Collectors;
 
 public class ApartmentServiceImpl implements CommonService<ApartmentDTO> {
     private final ApartmentDAO apartmentDAO = new ApartmentDAOImpl();
+    private final CommonService<AddressDTO> addressService = new AddressServiceImpl();
 
     @Override
     public ApartmentDTO save(ApartmentDTO apartmentDTO) {
+        AddressDTO addressDTO = apartmentDTO.getAddress();
+        if (addressDTO != null) {
+            addressDTO = addressService.save(addressDTO);
+            apartmentDTO.setAddress(addressDTO);
+        }
+
         ApartmentEntity apartmentEntity = ApartmentConverter.toEntity(apartmentDTO);
         apartmentDTO.setId(apartmentDAO.save(apartmentEntity).getId());
         return apartmentDTO;
@@ -48,5 +56,6 @@ public class ApartmentServiceImpl implements CommonService<ApartmentDTO> {
     @Override
     public void closeDao() {
         apartmentDAO.close();
+        addressService.closeDao();
     }
 }

@@ -14,4 +14,8 @@ public class CommonServletConstants {
      * Field constants
      */
     public static final String ID_PARAM = "id";
+    /**
+     * Attribute constants
+     */
+    public static final String ERROR_ATTRIBUTE = "errorMessage";
 }

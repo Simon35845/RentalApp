@@ -1,7 +1,9 @@
 package createdBy51mon.servlets.apartments;
 
+import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.dto.ApartmentDTO;
 import createdBy51mon.service.CommonService;
+import createdBy51mon.service.impl.AddressServiceImpl;
 import createdBy51mon.service.impl.ApartmentServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
@@ -19,6 +21,7 @@ import java.io.IOException;
 @WebServlet(name = "saveApartmentServlet", value = "/apartment_save")
 public class SaveApartmentServlet extends HttpServlet {
     private final CommonService<ApartmentDTO> apartmentService = new ApartmentServiceImpl();
+    private final CommonService<AddressDTO> addressService = new AddressServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,12 +36,14 @@ public class SaveApartmentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
+        this.addressService.save(MappingUtil.mapAddress(req));
         this.apartmentService.save(MappingUtil.mapApartment(req));
         resp.sendRedirect(ApartmentServletConstants.APARTMENTS_LIST_SERVLET);
     }
 
     @Override
     public void destroy() {
+        this.addressService.closeDao();
         this.apartmentService.closeDao();
         HibernateUtil.close();
         super.destroy();

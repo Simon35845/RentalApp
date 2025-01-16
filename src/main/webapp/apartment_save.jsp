@@ -1,4 +1,3 @@
-<%@ page import="createdBy51mon.utils.servlet_constants.AddressServletConstants" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.ApartmentServletConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
@@ -88,6 +87,22 @@
     <label>
         Введите количество комнат:
         <input name="<%= ApartmentServletConstants.APARTMENT_COUNT_OF_ROOMS_PARAM %>" type="text" required>
+    </label>
+    <label>
+        Введите общую площадь квартиры (м2):
+        <input name="<%= ApartmentServletConstants.APARTMENT_TOTAL_SQUARE_PARAM %>" type="text" required>
+    </label>
+    <label>
+        Введите название города:
+        <input name="<%= ApartmentServletConstants.ADDRESS_CITY_PARAM %>" type="text" required>
+    </label>
+    <label>
+        Введите название улицы:
+        <input name="<%= ApartmentServletConstants.ADDRESS_STREET_PARAM %>" type="text" required>
+    </label>
+    <label>
+        Введите номер дома:
+        <input name="<%= ApartmentServletConstants.ADDRESS_HOUSE_NUMBER_PARAM %>" type="text" required>
     </label>
     <div class="button-container">
         <button class="save-button" type="submit">Сохранить</button>

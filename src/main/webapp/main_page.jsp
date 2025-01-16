@@ -1,4 +1,3 @@
-<%@ page import="createdBy51mon.utils.servlet_constants.AddressServletConstants" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.PersonServletConstants" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.ApartmentServletConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -26,10 +25,10 @@
             background-color: rgba(214, 108, 33, 0.8);
         }
 
-        .addresses-list-link-button {
+/*        .addresses-list-link-button {
             display: inline-block;
             background-color: rgba(45, 173, 184, 0.8);
-        }
+        }*/
 
         .persons-list-link-button {
             display: inline-block;
@@ -44,7 +43,7 @@
         }
 
         .apartments-list-link-button:hover,
-        .addresses-list-link-button:hover,
+        /*.addresses-list-link-button:hover,*/
         .persons-list-link-button:hover {
             opacity: 0.8;
         }
@@ -55,8 +54,8 @@
 <body>
 <div class="button-container">
     <a class="apartments-list-link-button" href="<%= ApartmentServletConstants.APARTMENTS_LIST_SERVLET %>">Список квартир</a>
-    <br/>
-    <a class="addresses-list-link-button" href="<%= AddressServletConstants.ADDRESSES_LIST_SERVLET %>">Список адресов</a>
+<%--    <br/>--%>
+<%--    <a class="addresses-list-link-button" href="<%= AddressServletConstants.ADDRESSES_LIST_SERVLET %>">Список адресов</a>--%>
     <br/>
     <a class="persons-list-link-button" href="<%= PersonServletConstants.PERSONS_LIST_SERVLET %>">Список лиц</a>
 </div>

@@ -1,7 +1,9 @@
 package createdBy51mon.servlets.apartments;
 
+import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.dto.ApartmentDTO;
 import createdBy51mon.service.CommonService;
+import createdBy51mon.service.impl.AddressServiceImpl;
 import createdBy51mon.service.impl.ApartmentServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
@@ -19,20 +21,21 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "updateApartmentServlet", value = "/apartment_update")
-public class UpdateApartmentServlet extends HttpServlet{
+public class UpdateApartmentServlet extends HttpServlet {
     private final CommonService<ApartmentDTO> apartmentService = new ApartmentServiceImpl();
+    private final CommonService<AddressDTO> addressService = new AddressServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        Integer id = ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM);
-        if (id == null) {
+        Integer apartmentId = ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM);
+        if (apartmentId == null) {
             resp.sendRedirect(CommonServletConstants.ERROR_JSP);
             return;
         }
 
-        ApartmentDTO apartmentDTO = this.apartmentService.get(id);
+        ApartmentDTO apartmentDTO = this.apartmentService.get(apartmentId);
         req.setAttribute(ApartmentServletConstants.APARTMENT_ATTRIBUTE, apartmentDTO);
 
         RequestDispatcher requestDispatcher = getServletContext()
@@ -44,6 +47,16 @@ public class UpdateApartmentServlet extends HttpServlet{
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
+        Integer apartmentId = ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM);
+        if (apartmentId == null) {
+            resp.sendRedirect(CommonServletConstants.ERROR_JSP);
+            return;
+        }
+
+        this.addressService.update(
+                ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM),
+                MappingUtil.mapAddress(req));
+
         this.apartmentService.update(
                 ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM),
                 MappingUtil.mapApartment(req));
@@ -53,6 +66,7 @@ public class UpdateApartmentServlet extends HttpServlet{
 
     @Override
     public void destroy() {
+        this.addressService.closeDao();
         this.apartmentService.closeDao();
         HibernateUtil.close();
         super.destroy();

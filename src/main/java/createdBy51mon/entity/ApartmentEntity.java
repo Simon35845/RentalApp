@@ -28,6 +28,9 @@ public class ApartmentEntity {
     @Column(name = "count_of_rooms")
     private Integer countOfRooms;
 
+    @Column(name = "total_square")
+    private Double totalSquare;
+
     @ManyToOne
     @JoinColumn(name = "address_id", nullable = false)
     private AddressEntity address;

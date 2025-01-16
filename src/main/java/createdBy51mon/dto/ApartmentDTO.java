@@ -15,5 +15,6 @@ public class ApartmentDTO {
     private Integer number;
     private Integer floor;
     private Integer countOfRooms;
-    private AddressEntity address;
+    private Double totalSquare;
+    private AddressDTO address;
 }

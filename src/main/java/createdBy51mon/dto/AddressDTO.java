@@ -5,9 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.HashSet;
-import java.util.Set;
-
 @Builder
 @Data
 @AllArgsConstructor
@@ -17,5 +14,4 @@ public class AddressDTO {
     private String city;
     private String street;
     private Integer houseNumber;
-    private Set<ApartmentDTO> apartments = new HashSet();
 }

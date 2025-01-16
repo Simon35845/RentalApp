@@ -1,7 +1,9 @@
 package createdBy51mon.servlets.apartments;
 
+import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.dto.ApartmentDTO;
 import createdBy51mon.service.CommonService;
+import createdBy51mon.service.impl.AddressServiceImpl;
 import createdBy51mon.service.impl.ApartmentServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
@@ -19,10 +21,17 @@ import java.io.IOException;
 @WebServlet(name = "deleteApartmentServlet", value = "/apartment_delete")
 public class DeleteApartmentServlet extends HttpServlet {
     private final CommonService<ApartmentDTO> apartmentService = new ApartmentServiceImpl();
+    private final CommonService<AddressDTO> addressService = new AddressServiceImpl();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
+
+        Integer apartmentId = ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM);
+        if (apartmentId == null) {
+            resp.sendRedirect(CommonServletConstants.ERROR_JSP);
+            return;
+        }
 
         this.apartmentService.delete(
                 ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM));
@@ -31,6 +40,7 @@ public class DeleteApartmentServlet extends HttpServlet {
 
     @Override
     public void destroy() {
+        this.apartmentService.closeDao();
         this.apartmentService.closeDao();
         HibernateUtil.close();
         super.destroy();

@@ -90,7 +90,6 @@
                value="<%= apartment.getNumber() %>"
                required>
     </label>
-    <br/>
     <label>
         Изменить этаж:
         <input name="<%= ApartmentServletConstants.APARTMENT_FLOOR_PARAM %>"
@@ -98,12 +97,39 @@
                value="<%= apartment.getFloor() %>"
                required>
     </label>
-    <br/>
     <label>
         Изменить количество комнат:
         <input name="<%= ApartmentServletConstants.APARTMENT_COUNT_OF_ROOMS_PARAM %>"
                type="text"
                value="<%= apartment.getCountOfRooms() %>"
+               required>
+    </label>
+    <label>
+        Изменить общую площадь квартиры (м2):
+        <input name="<%= ApartmentServletConstants.APARTMENT_TOTAL_SQUARE_PARAM %>"
+               type="text"
+               value="<%= apartment.getTotalSquare() %>"
+               required>
+    </label>
+    <label>
+        Изменить название города:
+        <input name="<%= ApartmentServletConstants.ADDRESS_CITY_PARAM %>"
+               type="text"
+               value="<%= apartment.getAddress().getCity() %>"
+               required>
+    </label>
+    <label>
+        Изменить название улицы:
+        <input name="<%= ApartmentServletConstants.ADDRESS_STREET_PARAM %>"
+               type="text"
+               value="<%= apartment.getAddress().getStreet() %>"
+               required>
+    </label>
+    <label>
+        Изменить номер дома:
+        <input name="<%= ApartmentServletConstants.ADDRESS_HOUSE_NUMBER_PARAM %>"
+               type="text"
+               value="<%= apartment.getAddress().getHouseNumber() %>"
                required>
     </label>
     <div class="button-container">

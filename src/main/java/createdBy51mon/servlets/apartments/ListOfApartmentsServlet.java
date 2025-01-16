@@ -22,10 +22,10 @@ public class ListOfApartmentsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        final List<ApartmentDTO> apartmentDTOList = this.apartmentService.getAll();
+        final List<ApartmentDTO> apartments = this.apartmentService.getAll();
         EncodingUtil.setUTF8(req, resp);
 
-        req.setAttribute(ApartmentServletConstants.APARTMENT_LIST_ATTRIBUTE, apartmentDTOList);
+        req.setAttribute(ApartmentServletConstants.APARTMENT_LIST_ATTRIBUTE, apartments);
         RequestDispatcher requestDispatcher = getServletContext()
                 .getRequestDispatcher(ApartmentServletConstants.APARTMENTS_LIST_JSP);
         requestDispatcher.forward(req, resp);

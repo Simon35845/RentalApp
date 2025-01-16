@@ -88,6 +88,10 @@
     <th>Номер квартиры</th>
     <th>Этаж</th>
     <th>Количество комнат</th>
+    <th>Общая площадь квартиры (м2)</th>
+    <th>Город</th>
+    <th>Улица</th>
+    <th>Номер дома</th>
     <th>Действия</th>
   </tr>
   <% List<ApartmentDTO> apartments = (List<ApartmentDTO>) request.getAttribute(ApartmentServletConstants.APARTMENT_LIST_ATTRIBUTE);
@@ -101,6 +105,14 @@
     <td><%= apartment.getFloor() %>
     </td>
     <td><%= apartment.getCountOfRooms() %>
+    </td>
+    <td><%= apartment.getTotalSquare() %>
+    </td>
+    <td><%= apartment.getAddress().getCity() %>
+    </td>
+    <td><%= apartment.getAddress().getStreet() %>
+    </td>
+    <td><%= apartment.getAddress().getHouseNumber() %>
     </td>
     <td>
       <div class="button-container-2">

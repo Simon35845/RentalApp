@@ -16,8 +16,8 @@ public class AddressServiceImpl implements CommonService<AddressDTO> {
     @Override
     public AddressDTO save(AddressDTO addressDTO) {
         AddressEntity addressEntity = AddressConverter.toEntity(addressDTO);
-        addressDTO.setId(addressDAO.save(addressEntity).getId());
-        return addressDTO;
+            addressDTO.setId(addressDAO.save(addressEntity).getId());
+            return addressDTO;
     }
 
     @Override

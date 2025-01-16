@@ -24,10 +24,25 @@
         .main-link-button:hover {
             opacity: 0.8;
         }
+
+        .error-message {
+            color: red;
+        }
     </style>
 </head>
 <body>
-<h2>Если вы видите эту страницу, значит произошла ошибка)</h2>
+<h2>Страница вывода ошибок</h2>
+<br/>
+<%
+    String errorMessage = (String) request.getAttribute(CommonServletConstants.ERROR_ATTRIBUTE);
+    if (errorMessage != null) {
+%>
+<div class="error-message">
+    <h3>Причина ошибки: <%= errorMessage %></h3>
+</div>
+<%
+    }
+%>
 <br/>
 <a class="main-link-button" href="<%= CommonServletConstants.MAIN_PAGE_SERVLET %>">Вернуться на главную</a>
 </body>
