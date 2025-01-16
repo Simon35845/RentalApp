@@ -36,7 +36,6 @@ public class SaveApartmentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        this.addressService.save(MappingUtil.mapAddress(req));
         this.apartmentService.save(MappingUtil.mapApartment(req));
         resp.sendRedirect(ApartmentServletConstants.APARTMENTS_LIST_SERVLET);
     }

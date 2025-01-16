@@ -53,10 +53,6 @@ public class UpdateApartmentServlet extends HttpServlet {
             return;
         }
 
-        this.addressService.update(
-                ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM),
-                MappingUtil.mapAddress(req));
-
         this.apartmentService.update(
                 ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM),
                 MappingUtil.mapApartment(req));

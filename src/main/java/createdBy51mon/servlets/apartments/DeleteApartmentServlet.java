@@ -40,7 +40,7 @@ public class DeleteApartmentServlet extends HttpServlet {
 
     @Override
     public void destroy() {
-        this.apartmentService.closeDao();
+        this.addressService.closeDao();
         this.apartmentService.closeDao();
         HibernateUtil.close();
         super.destroy();
