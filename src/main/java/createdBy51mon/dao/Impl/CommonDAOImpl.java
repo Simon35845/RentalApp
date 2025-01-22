@@ -1,8 +1,10 @@
 package createdBy51mon.dao.Impl;
 
 import createdBy51mon.dao.CommonDAO;
+import createdBy51mon.exception.DuplicateExistingEntryException;
 import createdBy51mon.utils.ExecutorUtil;
 import createdBy51mon.utils.HibernateUtil;
+import org.hibernate.exception.ConstraintViolationException;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -18,10 +20,14 @@ public class CommonDAOImpl<T> implements CommonDAO<T> {
 
     @Override
     public T save(T t) {
-        return ExecutorUtil.executeHibernate(this.entityManager, em -> {
-            em.persist(t);
-            return t;
-        });
+        try {
+            return ExecutorUtil.executeHibernate(this.entityManager, em -> {
+                em.persist(t);
+                return t;
+            });
+        } catch (ConstraintViolationException e) {
+            throw new DuplicateExistingEntryException("Такая запись в таблице уже существует");
+        }
     }
 
     @Override

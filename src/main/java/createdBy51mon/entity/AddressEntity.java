@@ -14,7 +14,9 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "address")
+@Table(name = "address", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"city", "street", "house_number"})
+})
 public class AddressEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,7 +32,7 @@ public class AddressEntity {
     @Column(name = "house_number")
     private Integer houseNumber;
 
-    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "address", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     private Set<ApartmentEntity> apartments = new HashSet<>();
 }
 

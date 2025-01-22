@@ -12,15 +12,17 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "apartment")
+@Table(name = "apartment", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"apartment_number", "address"})
+})
 public class ApartmentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Integer id;
 
-    @Column
-    private Integer number;
+    @Column(name = "apartment_number")
+    private Integer apartmentNumber;
 
     @Column
     private Integer floor;

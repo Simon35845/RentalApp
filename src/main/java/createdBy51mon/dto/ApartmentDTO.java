@@ -1,6 +1,5 @@
 package createdBy51mon.dto;
 
-import createdBy51mon.entity.AddressEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ApartmentDTO {
     private Integer id;
-    private Integer number;
+    private Integer apartmentNumber;
     private Integer floor;
     private Integer countOfRooms;
     private Double totalSquare;

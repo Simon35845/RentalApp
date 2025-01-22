@@ -13,7 +13,7 @@ public class ApartmentConverter{
         AddressDTO addressDTO = AddressConverter.toDTO(entity.getAddress());
         return ApartmentDTO.builder()
                 .id(entity.getId())
-                .number(entity.getNumber())
+                .apartmentNumber(entity.getApartmentNumber())
                 .floor(entity.getFloor())
                 .countOfRooms(entity.getCountOfRooms())
                 .totalSquare(entity.getTotalSquare())
@@ -28,7 +28,7 @@ public class ApartmentConverter{
         AddressEntity addressEntity = AddressConverter.toEntity(dto.getAddress());
         return ApartmentEntity.builder()
                 .id(dto.getId())
-                .number(dto.getNumber())
+                .apartmentNumber(dto.getApartmentNumber())
                 .floor(dto.getFloor())
                 .countOfRooms(dto.getCountOfRooms())
                 .totalSquare(dto.getTotalSquare())

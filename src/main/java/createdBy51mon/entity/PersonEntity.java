@@ -12,7 +12,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "person")
+@Table(name = "person", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"name", "surname", "patronymic"})
+})
 public class PersonEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
