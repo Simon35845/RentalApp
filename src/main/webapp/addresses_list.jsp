@@ -104,7 +104,8 @@
         </td>
         <td>
             <div class="button-container-2">
-            <form name="update"
+            <form style="display: inline;"
+                    name="update"
                   method="get"
                   action="<%= AddressServletConstants.ADDRESS_UPDATE_SERVLET %>">
                 <button class="update-button"
@@ -113,7 +114,8 @@
                     Изменить
                 </button>
             </form>
-            <form name="delete"
+            <form style="display: inline;"
+                    name="delete"
                   method="post"
                   action="<%= AddressServletConstants.ADDRESS_DELETE_SERVLET %>">
                 <button class="delete-button"

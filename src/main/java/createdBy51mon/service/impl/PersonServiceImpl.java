@@ -4,6 +4,7 @@ import createdBy51mon.dao.PersonDAO;
 import createdBy51mon.dao.Impl.PersonDAOImpl;
 import createdBy51mon.dto.PersonDTO;
 import createdBy51mon.entity.PersonEntity;
+import createdBy51mon.exception.DuplicateExistingEntryException;
 import createdBy51mon.service.CommonService;
 import createdBy51mon.utils.converters.PersonConverter;
 
@@ -15,9 +16,19 @@ public class PersonServiceImpl implements CommonService<PersonDTO> {
 
     @Override
     public PersonDTO save(PersonDTO personDTO) {
-        PersonEntity personEntity = PersonConverter.toEntity(personDTO);
-        personDTO.setId(personDAO.save(personEntity).getId());
-        return personDTO;
+        try {
+            PersonEntity personEntity = PersonConverter.toEntity(personDTO);
+            PersonEntity savedEntity = personDAO.save(personEntity);
+            if (savedEntity == null) {
+                throw new DuplicateExistingEntryException("Такая запись в таблице уже существует");
+            }
+            personDTO.setId(savedEntity.getId());
+            return personDTO;
+        } catch (DuplicateExistingEntryException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new RuntimeException("Ошибка при сохранении данных", e);
+        }
     }
 
     @Override
@@ -46,7 +57,7 @@ public class PersonServiceImpl implements CommonService<PersonDTO> {
     }
 
     @Override
-    public void closeDao(){
+    public void closeDao() {
         personDAO.close();
     }
 }

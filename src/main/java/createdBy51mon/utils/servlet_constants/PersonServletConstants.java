@@ -25,5 +25,5 @@ public class PersonServletConstants {
      * Attribute constants
      */
     public static final String PERSON_ATTRIBUTE = "person";
-    public static final String PERSONS_LIST_ATTRIBUTE = "personList";
+    public static final String PERSONS_LIST_ATTRIBUTE = "personsList";
 }

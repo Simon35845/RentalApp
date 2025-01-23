@@ -4,6 +4,7 @@ import createdBy51mon.dao.AddressDAO;
 import createdBy51mon.dao.Impl.AddressDAOImpl;
 import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.entity.AddressEntity;
+import createdBy51mon.exception.DuplicateExistingEntryException;
 import createdBy51mon.service.CommonService;
 import createdBy51mon.utils.converters.AddressConverter;
 
@@ -15,9 +16,19 @@ public class AddressServiceImpl implements CommonService<AddressDTO> {
 
     @Override
     public AddressDTO save(AddressDTO addressDTO) {
-        AddressEntity addressEntity = AddressConverter.toEntity(addressDTO);
-            addressDTO.setId(addressDAO.save(addressEntity).getId());
+        try {
+            AddressEntity addressEntity = AddressConverter.toEntity(addressDTO);
+            AddressEntity savedEntity = addressDAO.save(addressEntity);
+            if (savedEntity == null) {
+                throw new DuplicateExistingEntryException("Такая запись в таблице уже существует");
+            }
+            addressDTO.setId(savedEntity.getId());
             return addressDTO;
+        } catch (DuplicateExistingEntryException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new RuntimeException("Ошибка при сохранении данных", e);
+        }
     }
 
     @Override

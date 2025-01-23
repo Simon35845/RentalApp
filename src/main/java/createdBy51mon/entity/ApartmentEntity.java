@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "apartment", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"apartment_number", "address"})
+        @UniqueConstraint(columnNames = {"apartment_number"})
 })
 public class ApartmentEntity {
     @Id

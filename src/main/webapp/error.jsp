@@ -28,17 +28,34 @@
         .error-message {
             color: red;
         }
+
+        .error-stack {
+            color: #000000;
+        }
     </style>
 </head>
 <body>
 <h2>Страница вывода ошибок</h2>
 <br/>
 <%
-    String errorMessage = (String) request.getAttribute(CommonServletConstants.ERROR_ATTRIBUTE);
+    String errorMessage = (String) request.getAttribute(CommonServletConstants.ERROR_MESSAGE_ATTRIBUTE);
     if (errorMessage != null) {
 %>
+<h3>Причина ошибки:</h3>
 <div class="error-message">
-    <h3>Причина ошибки: <%= errorMessage %></h3>
+    <h3><%= errorMessage %></h3>
+    <%
+        // Получаем стек-трейс
+        StackTraceElement[] stackTrace = (StackTraceElement[])
+                request.getAttribute(CommonServletConstants.ERROR_STACKTRACE_ATTRIBUTE);
+        if (stackTrace != null) {
+            out.write("<h3 class='error-stack'>Стек трассировки:</h3><pre>");
+            for (StackTraceElement element : stackTrace) {
+                out.write(element.toString() + "<br>");
+            }
+            out.write("</pre>");
+        }
+    %>
 </div>
 <%
     }

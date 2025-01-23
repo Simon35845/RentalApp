@@ -17,5 +17,6 @@ public class CommonServletConstants {
     /**
      * Attribute constants
      */
-    public static final String ERROR_ATTRIBUTE = "errorMessage";
+    public static final String ERROR_MESSAGE_ATTRIBUTE = "error_message";
+    public static final String ERROR_STACKTRACE_ATTRIBUTE = "error_stacktrace";
 }

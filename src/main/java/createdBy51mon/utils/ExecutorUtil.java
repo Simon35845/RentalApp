@@ -1,5 +1,8 @@
 package createdBy51mon.utils;
 
+import createdBy51mon.exception.DuplicateExistingEntryException;
+import org.hibernate.exception.ConstraintViolationException;
+
 import javax.persistence.EntityManager;
 
 public class ExecutorUtil {
@@ -18,6 +21,9 @@ public class ExecutorUtil {
             T t = hibernateExecutor.execute(entityManager);
             entityManager.getTransaction().commit();
             return t;
+        } catch (ConstraintViolationException e) {
+            entityManager.getTransaction().rollback();
+            throw new DuplicateExistingEntryException("Такая запись в таблице уже существует");
         } catch (Exception e) {
             entityManager.getTransaction().rollback();
             e.printStackTrace();

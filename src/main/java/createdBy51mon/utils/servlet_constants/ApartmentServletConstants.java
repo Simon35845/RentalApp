@@ -21,12 +21,10 @@ public class ApartmentServletConstants {
     public static final String APARTMENT_FLOOR_PARAM = "floor";
     public static final String APARTMENT_COUNT_OF_ROOMS_PARAM = "count_of_rooms";
     public static final String APARTMENT_TOTAL_SQUARE_PARAM = "total_square";
-    public static final String ADDRESS_CITY_PARAM = "city";
-    public static final String ADDRESS_STREET_PARAM = "street";
-    public static final String ADDRESS_HOUSE_NUMBER_PARAM = "house_number";
+    public static final String APARTMENT_ADDRESS_PARAM = "address";
     /**
      * Attribute constants
      */
-    public static final String APARTMENT_ATTRIBUTE = "person";
-    public static final String APARTMENT_LIST_ATTRIBUTE = "personList";
+    public static final String APARTMENT_ATTRIBUTE = "apartment";
+    public static final String APARTMENT_LIST_ATTRIBUTE = "apartmentsList";
 }
