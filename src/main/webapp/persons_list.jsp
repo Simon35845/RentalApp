@@ -5,7 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
-    <title>Persons List</title>
+    <title>Список персонала</title>
     <style>
         body {
             margin: 20px;
@@ -81,7 +81,7 @@
     </style>
 </head>
 <body>
-<h2>Список лиц</h2>
+<h2>Список персонала</h2>
 <table>
     <tr>
         <th>ID</th>

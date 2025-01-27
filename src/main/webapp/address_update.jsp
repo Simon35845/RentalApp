@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
-    <title>Update address</title>
+    <title>Изменение адреса</title>
     <style>
         body {
             margin: 20px;
@@ -74,7 +74,7 @@
 </head>
 <body>
 <%AddressDTO address = (AddressDTO) request.getAttribute(AddressServletConstants.ADDRESS_ATTRIBUTE); %>
-<h2>Изменение записей адресов</h2>
+<h2>Изменение адреса</h2>
 <form name="update"
       method="post"
       action="<%= AddressServletConstants.ADDRESS_UPDATE_SERVLET %>">

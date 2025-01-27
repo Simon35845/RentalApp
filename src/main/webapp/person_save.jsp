@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
-    <title>Save person</title>
+    <title>Сохранение персонала</title>
     <style>
         body {
             margin: 20px;
@@ -72,7 +72,7 @@
     </style>
 </head>
 <body>
-<h2>Сохранение записей лиц</h2>
+<h2>Сохранение персонала</h2>
 <form name="save"
       method="post"
       action="<%= PersonServletConstants.PERSON_SAVE_SERVLET %>">

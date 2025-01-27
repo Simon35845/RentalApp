@@ -4,7 +4,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
-    <title>RentalApp Main Page</title>
+    <title>Главная страница</title>
     <style>
         body {
             margin: 20px;

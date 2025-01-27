@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
-    <title>Update person</title>
+    <title>Изменение персонала</title>
     <style>
         body {
             margin: 20px;
@@ -74,7 +74,7 @@
 </head>
 <body>
 <% PersonDTO person = (PersonDTO) request.getAttribute(PersonServletConstants.PERSON_ATTRIBUTE); %>
-<h2>Изменение записей лиц</h2>
+<h2>Изменение персонала</h2>
 <form name="update"
       method="post"
       action="<%= PersonServletConstants.PERSON_UPDATE_SERVLET %>">

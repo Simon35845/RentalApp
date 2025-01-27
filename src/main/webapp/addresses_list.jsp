@@ -5,7 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
-    <title>Persons List</title>
+    <title>Список адресов</title>
     <style>
         body {
             margin: 20px;
