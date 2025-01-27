@@ -23,19 +23,18 @@ import java.io.IOException;
 @WebServlet(name = "updateApartmentServlet", value = "/apartment_update")
 public class UpdateApartmentServlet extends HttpServlet {
     private final CommonService<ApartmentDTO> apartmentService = new ApartmentServiceImpl();
-    private final CommonService<AddressDTO> addressService = new AddressServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        Integer apartmentId = ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM);
-        if (apartmentId == null) {
+        Integer id = ServletParamUtil.getIntegerParam(req, ApartmentServletConstants.APARTMENT_ID_PARAM);
+        if (id == null) {
             resp.sendRedirect(CommonServletConstants.ERROR_JSP);
             return;
         }
 
-        ApartmentDTO apartmentDTO = this.apartmentService.get(apartmentId);
+        ApartmentDTO apartmentDTO = this.apartmentService.get(id);
         req.setAttribute(ApartmentServletConstants.APARTMENT_ATTRIBUTE, apartmentDTO);
 
         RequestDispatcher requestDispatcher = getServletContext()
@@ -47,14 +46,8 @@ public class UpdateApartmentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        Integer apartmentId = ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM);
-        if (apartmentId == null) {
-            resp.sendRedirect(CommonServletConstants.ERROR_JSP);
-            return;
-        }
-
         this.apartmentService.update(
-                ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM),
+                ServletParamUtil.getIntegerParam(req, ApartmentServletConstants.APARTMENT_ID_PARAM),
                 MappingUtil.mapApartment(req));
 
         resp.sendRedirect(ApartmentServletConstants.APARTMENTS_LIST_SERVLET);
@@ -62,7 +55,6 @@ public class UpdateApartmentServlet extends HttpServlet {
 
     @Override
     public void destroy() {
-        this.addressService.closeDao();
         this.apartmentService.closeDao();
         HibernateUtil.close();
         super.destroy();

@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "listOfAddressServlet", value = "/addresses_list")
-public class ListOfAddressServlet extends HttpServlet {
+@WebServlet(name = "listOfAddressesServlet", value = "/addresses_list")
+public class ListOfAddressesServlet extends HttpServlet {
     private final CommonService<AddressDTO> addressService = new AddressServiceImpl();
 
     @Override

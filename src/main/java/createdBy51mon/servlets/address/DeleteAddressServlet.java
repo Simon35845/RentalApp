@@ -7,7 +7,6 @@ import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
 import createdBy51mon.utils.ServletParamUtil;
 import createdBy51mon.utils.servlet_constants.AddressServletConstants;
-import createdBy51mon.utils.servlet_constants.CommonServletConstants;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,7 +24,7 @@ public class DeleteAddressServlet extends HttpServlet {
         EncodingUtil.setUTF8(req, resp);
 
         this.addressService.delete(
-                ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM));
+                ServletParamUtil.getIntegerParam(req, AddressServletConstants.ADDRESS_ID_PARAM));
         resp.sendRedirect(AddressServletConstants.ADDRESSES_LIST_SERVLET);
     }
 

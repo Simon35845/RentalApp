@@ -15,11 +15,31 @@ public class ApartmentDAOImpl extends CommonDAOImpl<ApartmentEntity> implements 
 
     public ApartmentDAOImpl() {
         super(ApartmentEntity.class);
-        this.entityManager = HibernateUtil.getEntityManager();
+        this.entityManager = super.getEntityManager();
     }
 
     @Override
-    public ApartmentEntity getByFields (ApartmentEntity apartmentEntity) {
+    public ApartmentEntity save(ApartmentEntity apartmentEntity) {
+        return ExecutorUtil.executeHibernate(this.entityManager, em -> {
+            AddressEntity addressEntity = apartmentEntity.getAddress();
+            if (addressEntity != null && addressEntity.getId() == null) {
+                em.persist(addressEntity); // Сохраняем новый адрес
+            }
+// Костыльный способ сохранения apartmentEntity с detached полем address через persist
+            apartmentEntity.setAddress(addressEntity);
+            ApartmentEntity newApartment = new ApartmentEntity();
+            newApartment.setApartmentNumber(apartmentEntity.getApartmentNumber());
+            newApartment.setFloor(apartmentEntity.getFloor());
+            newApartment.setCountOfRooms(apartmentEntity.getCountOfRooms());
+            newApartment.setTotalSquare(apartmentEntity.getTotalSquare());
+            newApartment.setAddress(addressEntity);
+            em.persist(newApartment);
+            return newApartment;
+        });
+    }
+
+    @Override
+    public ApartmentEntity getByFields(ApartmentEntity apartmentEntity) {
         Integer apartmentNumber = apartmentEntity.getApartmentNumber();
         AddressEntity address = apartmentEntity.getAddress();
 
@@ -35,5 +55,12 @@ public class ApartmentDAOImpl extends CommonDAOImpl<ApartmentEntity> implements 
             List<ApartmentEntity> results = typedQuery.getResultList();
             return results.isEmpty() ? null : results.get(0);
         });
+    }
+
+    @Override
+    public void close() {
+        if (this.entityManager.isOpen()) {
+            this.entityManager.close();
+        }
     }
 }

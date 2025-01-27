@@ -1,6 +1,5 @@
 <%@ page import="createdBy51mon.dto.PersonDTO" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.PersonServletConstants" %>
-<%@ page import="createdBy51mon.utils.servlet_constants.CommonServletConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
@@ -79,7 +78,7 @@
 <form name="update"
       method="post"
       action="<%= PersonServletConstants.PERSON_UPDATE_SERVLET %>">
-    <input name="<%= CommonServletConstants.ID_PARAM %>"
+    <input name="<%= PersonServletConstants.PERSON_ID_PARAM %>"
            type="hidden"
            value="<%= person.getId() %>"
            required>

@@ -75,7 +75,7 @@
         .update-button:hover,
         .delete-button:hover,
         .save-link-button:hover,
-        .main-link-button:hover{
+        .main-link-button:hover {
             opacity: 0.8;
         }
     </style>
@@ -104,26 +104,26 @@
         </td>
         <td>
             <div class="button-container-2">
-            <form style="display: inline;"
-                    name="update"
-                  method="get"
-                  action="<%= AddressServletConstants.ADDRESS_UPDATE_SERVLET %>">
-                <button class="update-button"
-                        name="<%= CommonServletConstants.ID_PARAM %>"
-                        value="<%= address.getId() %>">
-                    Изменить
-                </button>
-            </form>
-            <form style="display: inline;"
-                    name="delete"
-                  method="post"
-                  action="<%= AddressServletConstants.ADDRESS_DELETE_SERVLET %>">
-                <button class="delete-button"
-                        name="<%= CommonServletConstants.ID_PARAM %>"
-                        value="<%= address.getId() %>">
-                    Удалить
-                </button>
-            </form>
+                <form style="display: inline;"
+                      name="update"
+                      method="get"
+                      action="<%= AddressServletConstants.ADDRESS_UPDATE_SERVLET %>">
+                    <button class="update-button"
+                            name="<%= AddressServletConstants.ADDRESS_ID_PARAM %>"
+                            value="<%= address.getId() %>">
+                        Изменить
+                    </button>
+                </form>
+                <form style="display: inline;"
+                      name="delete"
+                      method="post"
+                      action="<%= AddressServletConstants.ADDRESS_DELETE_SERVLET %>">
+                    <button class="delete-button"
+                            name="<%= AddressServletConstants.ADDRESS_ID_PARAM %>"
+                            value="<%= address.getId() %>">
+                        Удалить
+                    </button>
+                </form>
             </div>
         </td>
     </tr>

@@ -1,8 +1,11 @@
 <%@ page import="createdBy51mon.utils.servlet_constants.ApartmentServletConstants" %>
+<%@ page import="createdBy51mon.dto.AddressDTO" %>
+<%@ page import="createdBy51mon.utils.servlet_constants.AddressServletConstants" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
-    <title>Save apartment</title>
+    <title>Сохранение квартиры</title>
     <style>
         body {
             margin: 20px;
@@ -72,10 +75,25 @@
     </style>
 </head>
 <body>
-<h2>Сохранение записей квартир</h2>
+<h2>Сохранение квартиры</h2>
+<%List<AddressDTO> addresses = (List<AddressDTO>) request.getAttribute(AddressServletConstants.ADDRESSES_LIST_ATTRIBUTE); %>
 <form name="save"
       method="post"
       action="<%= ApartmentServletConstants.APARTMENT_SAVE_SERVLET %>">
+    <label>
+        Выберите адрес:
+        <select name="<%= AddressServletConstants.ADDRESS_ID_PARAM%>" required>
+            <option value="" disabled selected>Выберите адрес</option>
+            <% for (AddressDTO address : addresses) { %>
+            <option value="<%= address.getId() %>">
+                <%= address.getCity() + ", " + address.getStreet() + ", " + address.getHouseNumber() %>
+            </option>
+            <% } %>
+        </select>
+    </label>
+    <label>
+        Или <a href="<%= AddressServletConstants.ADDRESS_SAVE_SERVLET %>">добавьте новый адрес</a>
+    </label>
     <label>
         Введите номер квартиры:
         <input name="<%= ApartmentServletConstants.APARTMENT_NUMBER_PARAM %>" type="text" required>
@@ -92,21 +110,10 @@
         Введите общую площадь квартиры (м2):
         <input name="<%= ApartmentServletConstants.APARTMENT_TOTAL_SQUARE_PARAM %>" type="text" required>
     </label>
-    <label>
-        Введите название города:
-        <input name="<%= ApartmentServletConstants.ADDRESS_CITY_PARAM %>" type="text" required>
-    </label>
-    <label>
-        Введите название улицы:
-        <input name="<%= ApartmentServletConstants.ADDRESS_STREET_PARAM %>" type="text" required>
-    </label>
-    <label>
-        Введите номер дома:
-        <input name="<%= ApartmentServletConstants.ADDRESS_HOUSE_NUMBER_PARAM %>" type="text" required>
-    </label>
     <div class="button-container">
         <button class="save-button" type="submit">Сохранить</button>
-        <a class="list-link-button" href="<%= ApartmentServletConstants.APARTMENTS_LIST_SERVLET %>">Вернуться к списку квартир</a>
+        <a class="list-link-button" href="<%= ApartmentServletConstants.APARTMENTS_LIST_SERVLET %>">
+            Вернуться к списку квартир</a>
     </div>
 </form>
 </body>

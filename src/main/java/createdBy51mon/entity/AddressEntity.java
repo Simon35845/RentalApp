@@ -32,7 +32,7 @@ public class AddressEntity {
     @Column(name = "house_number")
     private Integer houseNumber;
 
-    @OneToMany(mappedBy = "address", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "address", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     private Set<ApartmentEntity> apartments = new HashSet<>();
 }
 

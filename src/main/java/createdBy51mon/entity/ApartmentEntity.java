@@ -13,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "apartment", uniqueConstraints = {
-        @UniqueConstraint(columnNames = {"apartment_number"})
+        @UniqueConstraint(columnNames = {"apartment_number", "address_id"})
 })
 public class ApartmentEntity {
     @Id
@@ -33,7 +33,7 @@ public class ApartmentEntity {
     @Column(name = "total_square")
     private Double totalSquare;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id", nullable = false)
     private AddressEntity address;
 }

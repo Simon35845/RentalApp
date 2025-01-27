@@ -26,7 +26,7 @@ public class UpdatePersonServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        Integer id = ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM);
+        Integer id = ServletParamUtil.getIntegerParam(req, PersonServletConstants.PERSON_ID_PARAM);
         if (id == null) {
             resp.sendRedirect(CommonServletConstants.ERROR_JSP);
             return;
@@ -45,7 +45,7 @@ public class UpdatePersonServlet extends HttpServlet {
         EncodingUtil.setUTF8(req, resp);
 
         this.personService.update(
-                ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM),
+                ServletParamUtil.getIntegerParam(req, PersonServletConstants.PERSON_ID_PARAM),
                 MappingUtil.mapPerson(req));
 
         resp.sendRedirect(PersonServletConstants.PERSONS_LIST_SERVLET);

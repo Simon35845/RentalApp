@@ -17,6 +17,7 @@ public class AddressServletConstants {
     /**
      * Field constants
      */
+    public static final String ADDRESS_ID_PARAM = "id";
     public static final String ADDRESS_CITY_PARAM = "city";
     public static final String ADDRESS_STREET_PARAM = "street";
     public static final String ADDRESS_HOUSE_NUMBER_PARAM = "house_number";

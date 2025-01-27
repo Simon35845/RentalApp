@@ -100,7 +100,7 @@
   <tr>
     <td><%= apartment.getId() %>
     </td>
-    <td><%= apartment.getNumber() %>
+    <td><%= apartment.getApartmentNumber() %>
     </td>
     <td><%= apartment.getFloor() %>
     </td>
@@ -120,7 +120,7 @@
               method="get"
               action="<%= ApartmentServletConstants.APARTMENT_UPDATE_SERVLET %>">
           <button class="update-button"
-                  name="<%= CommonServletConstants.ID_PARAM %>"
+                  name="<%= ApartmentServletConstants.APARTMENT_ID_PARAM %>"
                   value="<%= apartment.getId() %>">
             Изменить
           </button>
@@ -129,7 +129,7 @@
               method="post"
               action="<%= ApartmentServletConstants.APARTMENT_DELETE_SERVLET %>">
           <button class="delete-button"
-                  name="<%= CommonServletConstants.ID_PARAM %>"
+                  name="<%= ApartmentServletConstants.APARTMENT_ID_PARAM %>"
                   value="<%= apartment.getId() %>">
             Удалить
           </button>

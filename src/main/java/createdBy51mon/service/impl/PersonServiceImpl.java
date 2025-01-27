@@ -26,8 +26,6 @@ public class PersonServiceImpl implements CommonService<PersonDTO> {
             return personDTO;
         } catch (DuplicateExistingEntryException e) {
             throw e;
-        } catch (Exception e) {
-            throw new RuntimeException("Ошибка при сохранении данных", e);
         }
     }
 

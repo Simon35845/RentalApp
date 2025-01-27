@@ -112,7 +112,7 @@
                   method="get"
                   action="<%= PersonServletConstants.PERSON_UPDATE_SERVLET %>">
                 <button class="update-button"
-                        name="<%= CommonServletConstants.ID_PARAM %>"
+                        name="<%= PersonServletConstants.PERSON_ID_PARAM %>"
                         value="<%= person.getId() %>">
                     Изменить
                 </button>
@@ -122,7 +122,7 @@
                   method="post"
                   action="<%= PersonServletConstants.PERSON_DELETE_SERVLET %>">
                 <button class="delete-button"
-                        name="<%= CommonServletConstants.ID_PARAM %>"
+                        name="<%= PersonServletConstants.PERSON_ID_PARAM %>"
                         value="<%= person.getId() %>">
                     Удалить
                 </button>

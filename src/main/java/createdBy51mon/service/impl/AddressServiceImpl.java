@@ -26,8 +26,6 @@ public class AddressServiceImpl implements CommonService<AddressDTO> {
             return addressDTO;
         } catch (DuplicateExistingEntryException e) {
             throw e;
-        } catch (Exception e) {
-            throw new RuntimeException("Ошибка при сохранении данных", e);
         }
     }
 

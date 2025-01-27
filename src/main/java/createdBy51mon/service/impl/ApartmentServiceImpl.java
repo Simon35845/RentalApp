@@ -1,31 +1,45 @@
 package createdBy51mon.service.impl;
 
+import createdBy51mon.dao.AddressDAO;
 import createdBy51mon.dao.ApartmentDAO;
+import createdBy51mon.dao.Impl.AddressDAOImpl;
 import createdBy51mon.dao.Impl.ApartmentDAOImpl;
 import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.dto.ApartmentDTO;
+import createdBy51mon.entity.AddressEntity;
 import createdBy51mon.entity.ApartmentEntity;
+import createdBy51mon.entity.PersonEntity;
+import createdBy51mon.exception.DuplicateExistingEntryException;
 import createdBy51mon.service.CommonService;
 import createdBy51mon.utils.converters.ApartmentConverter;
+import createdBy51mon.utils.converters.PersonConverter;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ApartmentServiceImpl implements CommonService<ApartmentDTO> {
     private final ApartmentDAO apartmentDAO = new ApartmentDAOImpl();
+    private final AddressDAO addressDAO = new AddressDAOImpl();
     private final CommonService<AddressDTO> addressService = new AddressServiceImpl();
 
     @Override
     public ApartmentDTO save(ApartmentDTO apartmentDTO) {
-        AddressDTO addressDTO = apartmentDTO.getAddress();
-        if (addressDTO != null) {
-            addressDTO = addressService.save(addressDTO);
-            apartmentDTO.setAddress(addressDTO);
-        }
+        try {
 
-        ApartmentEntity apartmentEntity = ApartmentConverter.toEntity(apartmentDTO);
-        apartmentDTO.setId(apartmentDAO.save(apartmentEntity).getId());
-        return apartmentDTO;
+            ApartmentEntity apartmentEntity = ApartmentConverter.toEntity(apartmentDTO);
+            ApartmentEntity savedEntity = apartmentDAO.save(apartmentEntity);
+
+            if (savedEntity == null) {
+                throw new DuplicateExistingEntryException("Такая запись в таблице уже существует");
+            }
+            apartmentDTO.setId(savedEntity.getId());
+            return apartmentDTO;
+        } catch (DuplicateExistingEntryException e) {
+            throw e;
+        }
     }
 
     @Override
@@ -56,6 +70,7 @@ public class ApartmentServiceImpl implements CommonService<ApartmentDTO> {
     @Override
     public void closeDao() {
         apartmentDAO.close();
+        addressDAO.close();
         addressService.closeDao();
     }
 }

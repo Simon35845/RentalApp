@@ -44,7 +44,7 @@
         }
 
         .apartments-list-link-button:hover,
-        /*.addresses-list-link-button:hover,*/
+        .addresses-list-link-button:hover,
         .persons-list-link-button:hover {
             opacity: 0.8;
         }

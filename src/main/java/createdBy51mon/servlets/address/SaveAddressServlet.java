@@ -40,13 +40,7 @@ public class SaveAddressServlet extends HttpServlet {
             resp.sendRedirect(AddressServletConstants.ADDRESSES_LIST_SERVLET);
         } catch (DuplicateExistingEntryException e) {
             req.setAttribute(CommonServletConstants.ERROR_MESSAGE_ATTRIBUTE, e.getMessage());
-            req.setAttribute(CommonServletConstants.ERROR_STACKTRACE_ATTRIBUTE, e.getStackTrace());
             req.getRequestDispatcher(CommonServletConstants.ERROR_JSP).forward(req, resp);
-        } catch (Exception e) {
-            req.setAttribute(CommonServletConstants.ERROR_MESSAGE_ATTRIBUTE, "Произошла ошибка при добавлении записи.");
-            req.setAttribute(CommonServletConstants.ERROR_STACKTRACE_ATTRIBUTE, e.getStackTrace()); // Сохраняем стек-трейс
-            RequestDispatcher dispatcher = req.getRequestDispatcher("error.jsp");
-            dispatcher.forward(req, resp);
         }
     }
 

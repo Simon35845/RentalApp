@@ -17,6 +17,7 @@ public class ApartmentServletConstants {
     /**
      * Field constants
      */
+    public static final String APARTMENT_ID_PARAM = "id";
     public static final String APARTMENT_NUMBER_PARAM = "number";
     public static final String APARTMENT_FLOOR_PARAM = "floor";
     public static final String APARTMENT_COUNT_OF_ROOMS_PARAM = "count_of_rooms";

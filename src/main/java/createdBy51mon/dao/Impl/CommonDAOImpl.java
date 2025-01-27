@@ -16,6 +16,10 @@ public class CommonDAOImpl<T> implements CommonDAO<T> {
         this.clazz = clazz;
     }
 
+    protected EntityManager getEntityManager() {
+        return entityManager;
+    }
+
     @Override
     public T save(T t) {
             return ExecutorUtil.executeHibernate(this.entityManager, em -> {

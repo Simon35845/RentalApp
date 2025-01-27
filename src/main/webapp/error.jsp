@@ -44,18 +44,6 @@
 <h3>Причина ошибки:</h3>
 <div class="error-message">
     <h3><%= errorMessage %></h3>
-    <%
-        // Получаем стек-трейс
-        StackTraceElement[] stackTrace = (StackTraceElement[])
-                request.getAttribute(CommonServletConstants.ERROR_STACKTRACE_ATTRIBUTE);
-        if (stackTrace != null) {
-            out.write("<h3 class='error-stack'>Стек трассировки:</h3><pre>");
-            for (StackTraceElement element : stackTrace) {
-                out.write(element.toString() + "<br>");
-            }
-            out.write("</pre>");
-        }
-    %>
 </div>
 <%
     }

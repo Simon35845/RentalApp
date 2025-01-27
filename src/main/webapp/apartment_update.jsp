@@ -1,4 +1,3 @@
-<%@ page import="createdBy51mon.utils.servlet_constants.CommonServletConstants" %>
 <%@ page import="createdBy51mon.dto.ApartmentDTO" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.ApartmentServletConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -79,7 +78,7 @@
 <form name="update"
       method="post"
       action="<%= ApartmentServletConstants.APARTMENT_UPDATE_SERVLET %>">
-    <input name="<%= CommonServletConstants.ID_PARAM %>"
+    <input name="<%= ApartmentServletConstants.APARTMENT_ID_PARAM %>"
            type="hidden"
            value="<%= apartment.getId() %>"
            required>
@@ -87,7 +86,7 @@
         Изменить номер квартиры:
         <input name="<%= ApartmentServletConstants.APARTMENT_NUMBER_PARAM %>"
                type="text"
-               value="<%= apartment.getNumber() %>"
+               value="<%= apartment.getApartmentNumber() %>"
                required>
     </label>
     <label>
@@ -109,27 +108,6 @@
         <input name="<%= ApartmentServletConstants.APARTMENT_TOTAL_SQUARE_PARAM %>"
                type="text"
                value="<%= apartment.getTotalSquare() %>"
-               required>
-    </label>
-    <label>
-        Изменить название города:
-        <input name="<%= ApartmentServletConstants.ADDRESS_CITY_PARAM %>"
-               type="text"
-               value="<%= apartment.getAddress().getCity() %>"
-               required>
-    </label>
-    <label>
-        Изменить название улицы:
-        <input name="<%= ApartmentServletConstants.ADDRESS_STREET_PARAM %>"
-               type="text"
-               value="<%= apartment.getAddress().getStreet() %>"
-               required>
-    </label>
-    <label>
-        Изменить номер дома:
-        <input name="<%= ApartmentServletConstants.ADDRESS_HOUSE_NUMBER_PARAM %>"
-               type="text"
-               value="<%= apartment.getAddress().getHouseNumber() %>"
                required>
     </label>
     <div class="button-container">

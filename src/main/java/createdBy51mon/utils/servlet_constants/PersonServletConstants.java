@@ -17,6 +17,7 @@ public class PersonServletConstants {
     /**
      * Field constants
      */
+    public static final String PERSON_ID_PARAM = "id";
     public static final String PERSON_NAME_PARAM = "name";
     public static final String PERSON_SURNAME_PARAM = "surname";
     public static final String PERSON_PATRONYMIC_PARAM = "patronymic";

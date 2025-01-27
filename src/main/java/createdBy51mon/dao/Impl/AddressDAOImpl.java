@@ -14,7 +14,7 @@ public class AddressDAOImpl extends CommonDAOImpl<AddressEntity> implements Addr
 
     public AddressDAOImpl() {
         super(AddressEntity.class);
-        this.entityManager = HibernateUtil.getEntityManager();
+        this.entityManager = super.getEntityManager();
     }
 
     @Override

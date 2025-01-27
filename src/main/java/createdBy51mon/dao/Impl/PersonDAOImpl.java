@@ -15,7 +15,7 @@ public class PersonDAOImpl extends CommonDAOImpl<PersonEntity> implements Person
 
     public PersonDAOImpl() {
         super(PersonEntity.class);
-        this.entityManager = HibernateUtil.getEntityManager();
+        this.entityManager = super.getEntityManager();
     }
 
     @Override

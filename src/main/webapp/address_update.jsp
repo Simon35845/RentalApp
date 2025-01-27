@@ -1,5 +1,4 @@
 <%@ page import="createdBy51mon.dto.AddressDTO" %>
-<%@ page import="createdBy51mon.utils.servlet_constants.CommonServletConstants" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.AddressServletConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
@@ -79,7 +78,7 @@
 <form name="update"
       method="post"
       action="<%= AddressServletConstants.ADDRESS_UPDATE_SERVLET %>">
-    <input name="<%= CommonServletConstants.ID_PARAM %>"
+    <input name="<%= AddressServletConstants.ADDRESS_ID_PARAM %>"
            type="hidden"
            value="<%= address.getId() %>"
            required>

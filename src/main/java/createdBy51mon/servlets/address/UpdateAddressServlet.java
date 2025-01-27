@@ -26,7 +26,7 @@ public class UpdateAddressServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        Integer id = ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM);
+        Integer id = ServletParamUtil.getIntegerParam(req, AddressServletConstants.ADDRESS_ID_PARAM);
         if (id == null) {
             resp.sendRedirect(CommonServletConstants.ERROR_JSP);
             return;
@@ -45,7 +45,7 @@ public class UpdateAddressServlet extends HttpServlet {
         EncodingUtil.setUTF8(req, resp);
 
         this.addressService.update(
-                ServletParamUtil.getIntegerParam(req, CommonServletConstants.ID_PARAM),
+                ServletParamUtil.getIntegerParam(req, AddressServletConstants.ADDRESS_ID_PARAM),
                 MappingUtil.mapAddress(req));
 
         resp.sendRedirect(AddressServletConstants.ADDRESSES_LIST_SERVLET);
