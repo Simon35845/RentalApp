@@ -1,9 +1,7 @@
 package createdBy51mon.servlets.apartments;
 
-import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.dto.ApartmentDTO;
 import createdBy51mon.service.CommonService;
-import createdBy51mon.service.impl.AddressServiceImpl;
 import createdBy51mon.service.impl.ApartmentServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;

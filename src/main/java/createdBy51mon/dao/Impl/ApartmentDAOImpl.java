@@ -4,7 +4,6 @@ import createdBy51mon.dao.ApartmentDAO;
 import createdBy51mon.entity.AddressEntity;
 import createdBy51mon.entity.ApartmentEntity;
 import createdBy51mon.utils.ExecutorUtil;
-import createdBy51mon.utils.HibernateUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -23,17 +22,34 @@ public class ApartmentDAOImpl extends CommonDAOImpl<ApartmentEntity> implements 
         return ExecutorUtil.executeHibernate(this.entityManager, em -> {
             AddressEntity addressEntity = apartmentEntity.getAddress();
             if (addressEntity != null && addressEntity.getId() == null) {
-                em.persist(addressEntity); // Сохраняем новый адрес
+                em.persist(addressEntity);
             }
-// Костыльный способ сохранения apartmentEntity с detached полем address через persist
+
             apartmentEntity.setAddress(addressEntity);
             ApartmentEntity newApartment = new ApartmentEntity();
+
             newApartment.setApartmentNumber(apartmentEntity.getApartmentNumber());
             newApartment.setFloor(apartmentEntity.getFloor());
             newApartment.setCountOfRooms(apartmentEntity.getCountOfRooms());
             newApartment.setTotalSquare(apartmentEntity.getTotalSquare());
             newApartment.setAddress(addressEntity);
+
             em.persist(newApartment);
+            return newApartment;
+        });
+    }
+
+    @Override
+    public ApartmentEntity update(Integer id, ApartmentEntity apartmentEntity) {
+        return ExecutorUtil.executeHibernate(this.entityManager, em -> {
+            ApartmentEntity newApartment = em.find(ApartmentEntity.class, id);
+
+            newApartment.setApartmentNumber(apartmentEntity.getApartmentNumber());
+            newApartment.setFloor(apartmentEntity.getFloor());
+            newApartment.setCountOfRooms(apartmentEntity.getCountOfRooms());
+            newApartment.setTotalSquare(apartmentEntity.getTotalSquare());
+
+            em.merge(newApartment);
             return newApartment;
         });
     }

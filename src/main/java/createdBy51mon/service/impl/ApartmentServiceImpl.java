@@ -12,23 +12,15 @@ import createdBy51mon.entity.PersonEntity;
 import createdBy51mon.exception.DuplicateExistingEntryException;
 import createdBy51mon.service.CommonService;
 import createdBy51mon.utils.converters.ApartmentConverter;
-import createdBy51mon.utils.converters.PersonConverter;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-
-import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ApartmentServiceImpl implements CommonService<ApartmentDTO> {
     private final ApartmentDAO apartmentDAO = new ApartmentDAOImpl();
-    private final AddressDAO addressDAO = new AddressDAOImpl();
-    private final CommonService<AddressDTO> addressService = new AddressServiceImpl();
 
     @Override
     public ApartmentDTO save(ApartmentDTO apartmentDTO) {
         try {
-
             ApartmentEntity apartmentEntity = ApartmentConverter.toEntity(apartmentDTO);
             ApartmentEntity savedEntity = apartmentDAO.save(apartmentEntity);
 
@@ -70,7 +62,5 @@ public class ApartmentServiceImpl implements CommonService<ApartmentDTO> {
     @Override
     public void closeDao() {
         apartmentDAO.close();
-        addressDAO.close();
-        addressService.closeDao();
     }
 }
