@@ -1,21 +1,20 @@
 package createdBy51mon.dao.impl;
 
 import createdBy51mon.dao.ApartmentDAO;
-import createdBy51mon.entity.AddressEntity;
 import createdBy51mon.entity.ApartmentEntity;
-import createdBy51mon.utils.ExecutorUtil;
-
-import javax.persistence.EntityManager;
 
 public class ApartmentDAOImpl extends DAOImpl<ApartmentEntity> implements ApartmentDAO {
-    private final EntityManager entityManager;
-
     public ApartmentDAOImpl() {
         super(ApartmentEntity.class);
-        this.entityManager = super.getEntityManager();
     }
+//    private final EntityManager entityManager;
 
-    @Override
+/*    public ApartmentDAOImpl() {
+        super(ApartmentEntity.class);
+        this.entityManager = super.getEntityManager();
+    }*/
+
+/*    @Override
     public ApartmentEntity save(ApartmentEntity apartmentEntity) {
         return ExecutorUtil.executeHibernate(this.entityManager, em -> {
             AddressEntity addressEntity = apartmentEntity.getAddress();
@@ -57,5 +56,5 @@ public class ApartmentDAOImpl extends DAOImpl<ApartmentEntity> implements Apartm
         if (this.entityManager.isOpen()) {
             this.entityManager.close();
         }
-    }
+    }*/
 }

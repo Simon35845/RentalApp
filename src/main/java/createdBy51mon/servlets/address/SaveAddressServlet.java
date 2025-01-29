@@ -1,14 +1,12 @@
 package createdBy51mon.servlets.address;
 
 import createdBy51mon.dto.AddressDTO;
-import createdBy51mon.exception.DuplicateExistingEntryException;
 import createdBy51mon.service.AddressService;
 import createdBy51mon.service.impl.AddressServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
 import createdBy51mon.utils.MappingUtil;
 import createdBy51mon.utils.servlet_constants.AddressServletConstants;
-import createdBy51mon.utils.servlet_constants.CommonServletConstants;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -35,13 +33,8 @@ public class SaveAddressServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
 
-        try {
-            this.addressService.save(MappingUtil.mapAddress(req));
-            resp.sendRedirect(AddressServletConstants.ADDRESSES_LIST_SERVLET);
-        } catch (DuplicateExistingEntryException e) {
-            req.setAttribute(CommonServletConstants.ERROR_MESSAGE_ATTRIBUTE, e.getMessage());
-            req.getRequestDispatcher(CommonServletConstants.ERROR_JSP).forward(req, resp);
-        }
+        this.addressService.save(MappingUtil.mapAddress(req));
+        resp.sendRedirect(AddressServletConstants.ADDRESSES_LIST_SERVLET);
     }
 
     @Override

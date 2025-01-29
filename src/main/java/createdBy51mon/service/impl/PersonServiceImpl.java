@@ -4,7 +4,6 @@ import createdBy51mon.dao.PersonDAO;
 import createdBy51mon.dao.impl.PersonDAOImpl;
 import createdBy51mon.dto.PersonDTO;
 import createdBy51mon.entity.PersonEntity;
-import createdBy51mon.exception.DuplicateExistingEntryException;
 import createdBy51mon.service.PersonService;
 import createdBy51mon.utils.converters.PersonConverter;
 
@@ -16,17 +15,11 @@ public class PersonServiceImpl implements PersonService<PersonDTO> {
 
     @Override
     public PersonDTO save(PersonDTO personDTO) {
-        try {
             PersonEntity personEntity = PersonConverter.toEntity(personDTO);
             PersonEntity savedEntity = personDAO.save(personEntity);
-            if (savedEntity == null) {
-                throw new DuplicateExistingEntryException("Такая запись в таблице уже существует");
-            }
             personDTO.setId(savedEntity.getId());
             return personDTO;
-        } catch (DuplicateExistingEntryException e) {
-            throw e;
-        }
+
     }
 
     @Override

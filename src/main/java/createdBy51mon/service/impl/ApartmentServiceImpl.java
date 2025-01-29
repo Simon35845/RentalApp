@@ -4,9 +4,9 @@ import createdBy51mon.dao.ApartmentDAO;
 import createdBy51mon.dao.impl.ApartmentDAOImpl;
 import createdBy51mon.dto.ApartmentDTO;
 import createdBy51mon.entity.ApartmentEntity;
-import createdBy51mon.exception.DuplicateExistingEntryException;
 import createdBy51mon.service.ApartmentService;
 import createdBy51mon.utils.converters.ApartmentConverter;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,18 +15,10 @@ public class ApartmentServiceImpl implements ApartmentService<ApartmentDTO> {
 
     @Override
     public ApartmentDTO save(ApartmentDTO apartmentDTO) {
-        try {
-            ApartmentEntity apartmentEntity = ApartmentConverter.toEntity(apartmentDTO);
-            ApartmentEntity savedEntity = apartmentDAO.save(apartmentEntity);
-
-            if (savedEntity == null) {
-                throw new DuplicateExistingEntryException("Такая запись в таблице уже существует");
-            }
-            apartmentDTO.setId(savedEntity.getId());
-            return apartmentDTO;
-        } catch (DuplicateExistingEntryException e) {
-            throw e;
-        }
+        ApartmentEntity apartmentEntity = ApartmentConverter.toEntity(apartmentDTO);
+        ApartmentEntity savedEntity = apartmentDAO.save(apartmentEntity);
+        apartmentDTO.setId(savedEntity.getId());
+        return apartmentDTO;
     }
 
     @Override
