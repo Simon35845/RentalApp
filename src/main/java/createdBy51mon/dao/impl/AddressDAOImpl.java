@@ -1,15 +1,14 @@
-package createdBy51mon.dao.Impl;
+package createdBy51mon.dao.impl;
 
 import createdBy51mon.dao.AddressDAO;
 import createdBy51mon.entity.AddressEntity;
 import createdBy51mon.utils.ExecutorUtil;
-import createdBy51mon.utils.HibernateUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class AddressDAOImpl extends CommonDAOImpl<AddressEntity> implements AddressDAO {
+public class AddressDAOImpl extends DAOImpl<AddressEntity> implements AddressDAO {
     private final EntityManager entityManager;
 
     public AddressDAOImpl() {

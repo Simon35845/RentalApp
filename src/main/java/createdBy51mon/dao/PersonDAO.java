@@ -2,7 +2,7 @@ package createdBy51mon.dao;
 
 import createdBy51mon.entity.PersonEntity;
 
-public interface PersonDAO extends CommonDAO<PersonEntity> {
+public interface PersonDAO extends DAO<PersonEntity> {
     /**
      * Метод возвращает уникальную строку (запись) таблицы person, которая ищется по существующим значениям
      * полей объекта класса {@code PersonEntity}.

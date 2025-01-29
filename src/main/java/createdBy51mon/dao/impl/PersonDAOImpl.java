@@ -1,15 +1,14 @@
-package createdBy51mon.dao.Impl;
+package createdBy51mon.dao.impl;
 
 import createdBy51mon.dao.PersonDAO;
 import createdBy51mon.entity.PersonEntity;
 import createdBy51mon.utils.ExecutorUtil;
-import createdBy51mon.utils.HibernateUtil;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class PersonDAOImpl extends CommonDAOImpl<PersonEntity> implements PersonDAO  {
+public class PersonDAOImpl extends DAOImpl<PersonEntity> implements PersonDAO  {
 
     private final EntityManager entityManager;
 

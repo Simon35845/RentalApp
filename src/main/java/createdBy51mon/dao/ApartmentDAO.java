@@ -2,7 +2,7 @@ package createdBy51mon.dao;
 
 import createdBy51mon.entity.ApartmentEntity;
 
-public interface ApartmentDAO extends CommonDAO<ApartmentEntity> {
+public interface ApartmentDAO extends DAO<ApartmentEntity> {
 /**
      * Метод возвращает уникальную строку (запись) таблицы apartment, которая ищется по существующим значениям
      * полей объекта класса {@code ApartmentEntity}.

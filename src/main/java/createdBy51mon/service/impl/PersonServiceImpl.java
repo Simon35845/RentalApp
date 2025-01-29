@@ -1,7 +1,7 @@
 package createdBy51mon.service.impl;
 
 import createdBy51mon.dao.PersonDAO;
-import createdBy51mon.dao.Impl.PersonDAOImpl;
+import createdBy51mon.dao.impl.PersonDAOImpl;
 import createdBy51mon.dto.PersonDTO;
 import createdBy51mon.entity.PersonEntity;
 import createdBy51mon.exception.DuplicateExistingEntryException;
