@@ -1,7 +1,7 @@
 package createdBy51mon.servlets.address;
 
 import createdBy51mon.dto.AddressDTO;
-import createdBy51mon.service.CommonService;
+import createdBy51mon.service.AddressService;
 import createdBy51mon.service.impl.AddressServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
@@ -18,7 +18,7 @@ import java.util.List;
 
 @WebServlet(name = "listOfAddressesServlet", value = "/addresses_list")
 public class ListOfAddressesServlet extends HttpServlet {
-    private final CommonService<AddressDTO> addressService = new AddressServiceImpl();
+    private final AddressService<AddressDTO> addressService = new AddressServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

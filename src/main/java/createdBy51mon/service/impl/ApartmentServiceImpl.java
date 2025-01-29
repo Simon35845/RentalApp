@@ -1,21 +1,16 @@
 package createdBy51mon.service.impl;
 
-import createdBy51mon.dao.AddressDAO;
 import createdBy51mon.dao.ApartmentDAO;
-import createdBy51mon.dao.Impl.AddressDAOImpl;
 import createdBy51mon.dao.Impl.ApartmentDAOImpl;
-import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.dto.ApartmentDTO;
-import createdBy51mon.entity.AddressEntity;
 import createdBy51mon.entity.ApartmentEntity;
-import createdBy51mon.entity.PersonEntity;
 import createdBy51mon.exception.DuplicateExistingEntryException;
-import createdBy51mon.service.CommonService;
+import createdBy51mon.service.ApartmentService;
 import createdBy51mon.utils.converters.ApartmentConverter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ApartmentServiceImpl implements CommonService<ApartmentDTO> {
+public class ApartmentServiceImpl implements ApartmentService<ApartmentDTO> {
     private final ApartmentDAO apartmentDAO = new ApartmentDAOImpl();
 
     @Override

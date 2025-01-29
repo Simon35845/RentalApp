@@ -1,7 +1,7 @@
 package createdBy51mon.servlets.apartments;
 
 import createdBy51mon.dto.ApartmentDTO;
-import createdBy51mon.service.CommonService;
+import createdBy51mon.service.ApartmentService;
 import createdBy51mon.service.impl.ApartmentServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
@@ -18,7 +18,7 @@ import java.util.List;
 
 @WebServlet(name = "listOfApartmentsServlet", value = "/apartments_list")
 public class ListOfApartmentsServlet extends HttpServlet {
-    private final CommonService<ApartmentDTO> apartmentService = new ApartmentServiceImpl();
+    private final ApartmentService<ApartmentDTO> apartmentService = new ApartmentServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

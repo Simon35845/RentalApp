@@ -3,7 +3,8 @@ package createdBy51mon.servlets.apartments;
 import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.dto.ApartmentDTO;
 import createdBy51mon.exception.DuplicateExistingEntryException;
-import createdBy51mon.service.CommonService;
+import createdBy51mon.service.AddressService;
+import createdBy51mon.service.ApartmentService;
 import createdBy51mon.service.impl.AddressServiceImpl;
 import createdBy51mon.service.impl.ApartmentServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
@@ -25,8 +26,8 @@ import java.util.List;
 
 @WebServlet(name = "saveApartmentServlet", value = "/apartment_save")
 public class SaveApartmentServlet extends HttpServlet {
-    private final CommonService<ApartmentDTO> apartmentService = new ApartmentServiceImpl();
-    private final CommonService<AddressDTO> addressService = new AddressServiceImpl();
+    private final ApartmentService<ApartmentDTO> apartmentService = new ApartmentServiceImpl();
+    private final AddressService<AddressDTO> addressService = new AddressServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

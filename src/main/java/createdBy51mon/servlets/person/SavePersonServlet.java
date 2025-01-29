@@ -2,7 +2,7 @@ package createdBy51mon.servlets.person;
 
 import createdBy51mon.dto.PersonDTO;
 import createdBy51mon.exception.DuplicateExistingEntryException;
-import createdBy51mon.service.CommonService;
+import createdBy51mon.service.PersonService;
 import createdBy51mon.service.impl.PersonServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
@@ -20,7 +20,7 @@ import java.io.IOException;
 
 @WebServlet(name = "savePersonServlet", value = "/person_save")
 public class SavePersonServlet extends HttpServlet {
-    private final CommonService<PersonDTO> personService = new PersonServiceImpl();
+    private final PersonService<PersonDTO> personService = new PersonServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
