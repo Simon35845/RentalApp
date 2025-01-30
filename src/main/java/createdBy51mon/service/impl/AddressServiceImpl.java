@@ -4,6 +4,7 @@ import createdBy51mon.dao.AddressDAO;
 import createdBy51mon.dao.impl.AddressDAOImpl;
 import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.entity.AddressEntity;
+import createdBy51mon.entity.PersonEntity;
 import createdBy51mon.service.AddressService;
 import createdBy51mon.utils.converters.AddressConverter;
 
@@ -15,8 +16,8 @@ public class AddressServiceImpl implements AddressService<AddressDTO> {
 
     @Override
     public AddressDTO save(AddressDTO addressDTO) {
-        AddressEntity addressEntity = AddressConverter.toEntity(addressDTO);
-        AddressEntity savedEntity = addressDAO.save(addressEntity);
+        AddressEntity newEntity = AddressConverter.toEntity(addressDTO);
+        AddressEntity savedEntity = addressDAO.save(newEntity);
         addressDTO.setId(savedEntity.getId());
         return addressDTO;
     }
@@ -35,9 +36,16 @@ public class AddressServiceImpl implements AddressService<AddressDTO> {
 
     @Override
     public AddressDTO update(Integer id, AddressDTO addressDTO) {
-        AddressEntity addressEntity = AddressConverter.toEntity(addressDTO);
-        addressEntity.setId(id);
-        addressDTO.setId(addressDAO.update(id, addressEntity).getId());
+        AddressEntity newEntity = AddressConverter.toEntity(addressDTO);
+        AddressEntity oldEntity = addressDAO.get(id);
+
+        if (newEntity != null && newEntity != oldEntity) {
+            AddressEntity updatedEntity = addressDAO.update(id, newEntity);
+            addressDTO.setId(updatedEntity.getId());
+        }
+
+        newEntity.setId(id);
+        addressDTO.setId(addressDAO.update(id, newEntity).getId());
         return addressDTO;
     }
 

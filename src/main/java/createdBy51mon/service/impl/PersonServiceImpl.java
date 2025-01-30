@@ -15,11 +15,10 @@ public class PersonServiceImpl implements PersonService<PersonDTO> {
 
     @Override
     public PersonDTO save(PersonDTO personDTO) {
-            PersonEntity personEntity = PersonConverter.toEntity(personDTO);
-            PersonEntity savedEntity = personDAO.save(personEntity);
+            PersonEntity newEntity = PersonConverter.toEntity(personDTO);
+            PersonEntity savedEntity = personDAO.save(newEntity);
             personDTO.setId(savedEntity.getId());
             return personDTO;
-
     }
 
     @Override
@@ -36,9 +35,13 @@ public class PersonServiceImpl implements PersonService<PersonDTO> {
 
     @Override
     public PersonDTO update(Integer id, PersonDTO personDTO) {
-        PersonEntity personEntity = PersonConverter.toEntity(personDTO);
-        personEntity.setId(id);
-        personDTO.setId(personDAO.update(id, personEntity).getId());
+        PersonEntity newEntity = PersonConverter.toEntity(personDTO);
+        PersonEntity oldEntity = personDAO.get(id);
+
+        if (newEntity != null && newEntity != oldEntity) {
+            PersonEntity updatedEntity = personDAO.update(id, newEntity);
+            personDTO.setId(updatedEntity.getId());
+        }
         return personDTO;
     }
 

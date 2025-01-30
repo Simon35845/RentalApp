@@ -6,7 +6,7 @@ import createdBy51mon.service.impl.PersonServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
 import createdBy51mon.utils.servlet_constants.PersonServletConstants;
-import createdBy51mon.utils.ServletParamUtil;
+import createdBy51mon.utils.ParsingUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +24,7 @@ public class DeletePersonServlet extends HttpServlet {
         EncodingUtil.setUTF8(req, resp);
 
         this.personService.delete(
-                ServletParamUtil.getIntegerParam(req, PersonServletConstants.PERSON_ID_PARAM));
+                ParsingUtil.getIntegerParam(req, PersonServletConstants.PERSON_ID_PARAM));
         resp.sendRedirect(PersonServletConstants.PERSONS_LIST_SERVLET);
     }
 

@@ -82,7 +82,7 @@
       action="<%= ApartmentServletConstants.APARTMENT_SAVE_SERVLET %>">
     <label>
         Выберите адрес:
-        <select name="<%= AddressServletConstants.ADDRESS_ID_PARAM%>" required>
+        <select name="<%= ApartmentServletConstants.APARTMENT_ADDRESS_ID_PARAM%>" required>
             <option value="" disabled selected>Выберите адрес</option>
             <% for (AddressDTO address : addresses) { %>
             <option value="<%= address.getId() %>">
