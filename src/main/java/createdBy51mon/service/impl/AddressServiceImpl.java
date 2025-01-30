@@ -2,6 +2,7 @@ package createdBy51mon.service.impl;
 
 import createdBy51mon.dao.AddressDAO;
 import createdBy51mon.dao.impl.AddressDAOImpl;
+import createdBy51mon.dao.impl.ApartmentDAOImpl;
 import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.entity.AddressEntity;
 import createdBy51mon.entity.PersonEntity;
@@ -12,7 +13,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class AddressServiceImpl implements AddressService<AddressDTO> {
-    private final AddressDAO addressDAO = new AddressDAOImpl();
+    private final AddressDAO addressDAO;
+
+    public AddressServiceImpl() {
+        this.addressDAO = new AddressDAOImpl();
+    }
 
     @Override
     public AddressDTO save(AddressDTO addressDTO) {

@@ -27,6 +27,7 @@ public class MappingUtil {
                 .countOfRooms(ParsingUtil.getIntegerParam(req, ApartmentServletConstants.APARTMENT_COUNT_OF_ROOMS_PARAM))
                 .totalSquare(ParsingUtil.getDoubleParam(req, ApartmentServletConstants.APARTMENT_TOTAL_SQUARE_PARAM))
                 .addressId(ParsingUtil.getIntegerParam(req, ApartmentServletConstants.APARTMENT_ADDRESS_ID_PARAM))
+                .address(mapAddress(req))
                 .build();
     }
 

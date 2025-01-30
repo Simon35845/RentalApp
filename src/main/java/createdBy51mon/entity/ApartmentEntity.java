@@ -8,6 +8,8 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(exclude = "address")
+@ToString(exclude = "address")
 @Entity
 @Table(name = "apartment", uniqueConstraints = {
         @UniqueConstraint(columnNames = {"apartment_number", "address_id"})

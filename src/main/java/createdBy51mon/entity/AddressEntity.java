@@ -10,6 +10,8 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(exclude = "apartments")
+@ToString(exclude = "apartments")
 @Entity
 @Table(name = "address", uniqueConstraints = {
         @UniqueConstraint(columnNames = {"city", "street", "house_number"})

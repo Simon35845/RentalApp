@@ -1,6 +1,7 @@
 package createdBy51mon.service.impl;
 
 import createdBy51mon.dao.PersonDAO;
+import createdBy51mon.dao.impl.AddressDAOImpl;
 import createdBy51mon.dao.impl.PersonDAOImpl;
 import createdBy51mon.dto.PersonDTO;
 import createdBy51mon.entity.PersonEntity;
@@ -11,7 +12,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PersonServiceImpl implements PersonService<PersonDTO> {
-    private final PersonDAO personDAO = new PersonDAOImpl();
+    private final PersonDAO personDAO;
+
+    public PersonServiceImpl() {
+        this.personDAO = new PersonDAOImpl();
+    }
 
     @Override
     public PersonDTO save(PersonDTO personDTO) {

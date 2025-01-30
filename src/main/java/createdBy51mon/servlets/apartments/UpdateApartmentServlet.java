@@ -1,5 +1,6 @@
 package createdBy51mon.servlets.apartments;
 
+import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.dto.ApartmentDTO;
 import createdBy51mon.service.ApartmentService;
 import createdBy51mon.service.impl.ApartmentServiceImpl;
@@ -7,6 +8,7 @@ import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
 import createdBy51mon.utils.MappingUtil;
 import createdBy51mon.utils.ParsingUtil;
+import createdBy51mon.utils.servlet_constants.AddressServletConstants;
 import createdBy51mon.utils.servlet_constants.ApartmentServletConstants;
 import createdBy51mon.utils.servlet_constants.CommonServletConstants;
 
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "updateApartmentServlet", value = "/apartment_update")
 public class UpdateApartmentServlet extends HttpServlet {
@@ -31,6 +34,9 @@ public class UpdateApartmentServlet extends HttpServlet {
             resp.sendRedirect(CommonServletConstants.ERROR_JSP);
             return;
         }
+
+        List<AddressDTO> addresses = apartmentService.getAddresses();
+        req.setAttribute(AddressServletConstants.ADDRESSES_LIST_ATTRIBUTE, addresses);
 
         ApartmentDTO apartmentDTO = this.apartmentService.get(id);
         req.setAttribute(ApartmentServletConstants.APARTMENT_ATTRIBUTE, apartmentDTO);

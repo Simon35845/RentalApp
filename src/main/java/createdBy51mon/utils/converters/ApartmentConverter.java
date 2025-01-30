@@ -1,5 +1,6 @@
 package createdBy51mon.utils.converters;
 
+import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.dto.ApartmentDTO;
 import createdBy51mon.entity.ApartmentEntity;
 
@@ -8,6 +9,7 @@ public class ApartmentConverter{
         if (entity == null) {
             return null;
         }
+        AddressDTO addressDTO = AddressConverter.toDTO(entity.getAddress());
         return ApartmentDTO.builder()
                 .id(entity.getId())
                 .apartmentNumber(entity.getApartmentNumber())
@@ -15,6 +17,7 @@ public class ApartmentConverter{
                 .countOfRooms(entity.getCountOfRooms())
                 .totalSquare(entity.getTotalSquare())
                 .addressId(entity.getAddress().getId())
+                .address(addressDTO)
                 .build();
     }
 

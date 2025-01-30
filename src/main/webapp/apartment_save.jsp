@@ -41,7 +41,7 @@
             box-sizing: border-box;
         }
 
-        .save-button, .list-link-button {
+        .save-button, .list-link-button, .add-address-button {
             display: inline-block;
             padding: 10px 20px;
             text-align: center;
@@ -61,6 +61,10 @@
             background-color: #007BFF;
         }
 
+        .add-address-button {
+            background-color: #43a600;
+        }
+
         .button-container {
             display: flex;
             align-items: center;
@@ -69,7 +73,8 @@
         }
 
         .save-button:hover,
-        .list-link-button:hover {
+        .list-link-button:hover,
+        .add-address-button:hover {
             opacity: 0.8;
         }
     </style>
@@ -92,27 +97,42 @@
         </select>
     </label>
     <label>
-        Или <a href="<%= AddressServletConstants.ADDRESS_SAVE_SERVLET %>">добавьте новый адрес</a>
+        Или
+        <br/>
+        <a class="add-address-button" href="<%= AddressServletConstants.ADDRESS_SAVE_SERVLET %>">
+            добавьте новый адрес</a>
     </label>
     <label>
         Введите номер квартиры:
-        <input name="<%= ApartmentServletConstants.APARTMENT_NUMBER_PARAM %>" type="text" required>
+        <input name="<%= ApartmentServletConstants.APARTMENT_NUMBER_PARAM %>"
+               type="text"
+               required>
     </label>
     <label>
         Введите этаж:
-        <input name="<%= ApartmentServletConstants.APARTMENT_FLOOR_PARAM %>" type="text" required>
+        <input name="<%= ApartmentServletConstants.APARTMENT_FLOOR_PARAM %>"
+               type="text"
+               required>
     </label>
     <label>
         Введите количество комнат:
-        <input name="<%= ApartmentServletConstants.APARTMENT_COUNT_OF_ROOMS_PARAM %>" type="text" required>
+        <input name="<%= ApartmentServletConstants.APARTMENT_COUNT_OF_ROOMS_PARAM %>"
+               type="text"
+               required>
     </label>
     <label>
         Введите общую площадь квартиры (м2):
-        <input name="<%= ApartmentServletConstants.APARTMENT_TOTAL_SQUARE_PARAM %>" type="text" required>
+        <input name="<%= ApartmentServletConstants.APARTMENT_TOTAL_SQUARE_PARAM %>"
+               type="text"
+               required>
     </label>
     <div class="button-container">
-        <button class="save-button" type="submit">Сохранить</button>
-        <a class="list-link-button" href="<%= ApartmentServletConstants.APARTMENTS_LIST_SERVLET %>">
+        <button class="save-button"
+                type="submit">
+            Сохранить
+        </button>
+        <a class="list-link-button"
+           href="<%= ApartmentServletConstants.APARTMENTS_LIST_SERVLET %>">
             Вернуться к списку квартир</a>
     </div>
 </form>
