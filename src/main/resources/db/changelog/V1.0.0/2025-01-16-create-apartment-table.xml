@@ -6,26 +6,34 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.30.xsd">
 
     <changeSet id="1" author="51mon">
-        <createTable tableName="person">
+        <createTable tableName="apartment">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(255)">
+            <column name="apartment_number" type="int">
                 <constraints nullable="false"/>
             </column>
-            <column name="surname" type="varchar(255)">
+            <column name="floor" type="int">
                 <constraints nullable="false"/>
             </column>
-            <column name="patronymic" type="varchar(255)"/>
-            <column name="age" type="int">
+            <column name="count_of_rooms" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="total_square" type="double">
                 <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
 
     <changeSet id="2" author="51mon">
-        <addUniqueConstraint tableName="person"
-                             columnNames="name, surname, patronymic"
-                             constraintName="uq_person"/>
+        <addUniqueConstraint tableName="apartment"
+                             columnNames="apartment_number, address_id"
+                             constraintName="uq_apartment"/>
+
+        <addForeignKeyConstraint baseTableName="apartment"
+                                 baseColumnNames="address_id"
+                                 referencedTableName="address"
+                                 referencedColumnNames="id"
+                                 constraintName="fk_apartment_address"/>
     </changeSet>
 </databaseChangeLog>

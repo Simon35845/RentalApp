@@ -6,26 +6,25 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.30.xsd">
 
     <changeSet id="1" author="51mon">
-        <createTable tableName="person">
+        <createTable tableName="address">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(255)">
+            <column name="city" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="surname" type="varchar(255)">
+            <column name="street" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="patronymic" type="varchar(255)"/>
-            <column name="age" type="int">
+            <column name="house_number" type="int">
                 <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
 
     <changeSet id="2" author="51mon">
-        <addUniqueConstraint tableName="person"
-                             columnNames="name, surname, patronymic"
-                             constraintName="uq_person"/>
+        <addUniqueConstraint tableName="address"
+                             columnNames="city, street, house_number"
+                             constraintName="uq_address"/>
     </changeSet>
 </databaseChangeLog>
