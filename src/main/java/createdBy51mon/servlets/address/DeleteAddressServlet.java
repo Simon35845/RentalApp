@@ -17,7 +17,7 @@ import java.io.IOException;
 
 @WebServlet(name = "deleteAddressServlet", value = "/address_delete")
 public class DeleteAddressServlet extends HttpServlet {
-    private final AddressService<AddressDTO> addressService = new AddressServiceImpl();
+    private final AddressService addressService = new AddressServiceImpl();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

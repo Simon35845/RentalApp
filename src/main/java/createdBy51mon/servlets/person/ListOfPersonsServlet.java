@@ -18,7 +18,7 @@ import java.util.List;
 
 @WebServlet(name = "listOfPersonsServlet", value = "/persons_list")
 public class ListOfPersonsServlet extends HttpServlet {
-    private final PersonService<PersonDTO> personService = new PersonServiceImpl();
+    private final PersonService personService = new PersonServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

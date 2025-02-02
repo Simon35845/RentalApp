@@ -18,7 +18,7 @@ import java.util.List;
 
 @WebServlet(name = "listOfAddressesServlet", value = "/addresses_list")
 public class ListOfAddressesServlet extends HttpServlet {
-    private final AddressService<AddressDTO> addressService = new AddressServiceImpl();
+    private final AddressService addressService = new AddressServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -17,7 +17,7 @@ import java.io.IOException;
 
 @WebServlet(name = "deletePersonServlet", value = "/person_delete")
 public class DeletePersonServlet extends HttpServlet {
-    private final PersonService<PersonDTO> personService = new PersonServiceImpl();
+    private final PersonService personService = new PersonServiceImpl();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

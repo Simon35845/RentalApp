@@ -20,7 +20,7 @@ import java.io.IOException;
 
 @WebServlet(name = "updateAddressServlet", value = "/address_update")
 public class UpdateAddressServlet extends HttpServlet {
-    private final AddressService<AddressDTO> addressService = new AddressServiceImpl();
+    private final AddressService addressService = new AddressServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

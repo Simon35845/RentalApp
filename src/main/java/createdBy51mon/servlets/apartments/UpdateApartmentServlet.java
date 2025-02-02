@@ -23,7 +23,7 @@ import java.util.List;
 
 @WebServlet(name = "updateApartmentServlet", value = "/apartment_update")
 public class UpdateApartmentServlet extends HttpServlet {
-    private final ApartmentService<ApartmentDTO> apartmentService = new ApartmentServiceImpl();
+    private final ApartmentService apartmentService = new ApartmentServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
