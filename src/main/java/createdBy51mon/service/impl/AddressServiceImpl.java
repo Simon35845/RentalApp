@@ -2,17 +2,15 @@ package createdBy51mon.service.impl;
 
 import createdBy51mon.dao.AddressDAO;
 import createdBy51mon.dao.impl.AddressDAOImpl;
-import createdBy51mon.dao.impl.ApartmentDAOImpl;
 import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.entity.AddressEntity;
-import createdBy51mon.entity.PersonEntity;
 import createdBy51mon.service.AddressService;
 import createdBy51mon.utils.converters.AddressConverter;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AddressServiceImpl implements AddressService<AddressDTO> {
+public class AddressServiceImpl implements AddressService {
     private final AddressDAO addressDAO;
 
     public AddressServiceImpl() {

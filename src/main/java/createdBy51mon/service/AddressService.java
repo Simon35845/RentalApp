@@ -4,7 +4,7 @@ import createdBy51mon.dto.AddressDTO;
 
 import java.util.List;
 
-public interface AddressService<T> {
+public interface AddressService {
     AddressDTO save(AddressDTO addressDTO);
 
     AddressDTO get(Integer id);

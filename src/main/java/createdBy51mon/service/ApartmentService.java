@@ -5,7 +5,7 @@ import createdBy51mon.dto.ApartmentDTO;
 
 import java.util.List;
 
-public interface ApartmentService<T> {
+public interface ApartmentService {
     ApartmentDTO save(ApartmentDTO apartmentDTO);
 
     ApartmentDTO get(Integer id);

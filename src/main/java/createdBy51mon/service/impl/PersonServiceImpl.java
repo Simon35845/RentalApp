@@ -1,7 +1,6 @@
 package createdBy51mon.service.impl;
 
 import createdBy51mon.dao.PersonDAO;
-import createdBy51mon.dao.impl.AddressDAOImpl;
 import createdBy51mon.dao.impl.PersonDAOImpl;
 import createdBy51mon.dto.PersonDTO;
 import createdBy51mon.entity.PersonEntity;
@@ -11,7 +10,7 @@ import createdBy51mon.utils.converters.PersonConverter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PersonServiceImpl implements PersonService<PersonDTO> {
+public class PersonServiceImpl implements PersonService {
     private final PersonDAO personDAO;
 
     public PersonServiceImpl() {

@@ -4,7 +4,7 @@ import createdBy51mon.dto.PersonDTO;
 
 import java.util.List;
 
-public interface PersonService<T> {
+public interface PersonService {
     PersonDTO save(PersonDTO personDTO);
 
     PersonDTO get(Integer id);

@@ -15,7 +15,7 @@ import createdBy51mon.utils.converters.ApartmentConverter;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ApartmentServiceImpl implements ApartmentService<ApartmentDTO> {
+public class ApartmentServiceImpl implements ApartmentService {
     private final ApartmentDAO apartmentDAO;
     private final AddressDAO addressDAO;
 
