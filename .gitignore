@@ -11,6 +11,10 @@ target
 .mvn
 *.config
 
+src/main/java/createdBy51mon/App.java
+src/main/resources/liquibase.properties
+src/main/resources/META-INF/persistence.xml
+
 # Log file
 *.log
 
