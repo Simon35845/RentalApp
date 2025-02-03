@@ -29,7 +29,8 @@
             background-color: rgba(230, 230, 200, 0.78);
         }
 
-        .update-button, .delete-button, .save-link-button, .main-link-button {
+        .update-button, .delete-button, .apartments-button,
+        .save-link-button, .main-link-button {
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
@@ -46,6 +47,10 @@
 
         .delete-button {
             background-color: #f44336;
+        }
+
+        .apartments-button {
+            background-color: #81707b;
         }
 
         .save-link-button {
@@ -74,6 +79,7 @@
 
         .update-button:hover,
         .delete-button:hover,
+        .apartments-button:hover,
         .save-link-button:hover,
         .main-link-button:hover {
             opacity: 0.8;
@@ -122,6 +128,16 @@
                             name="<%= AddressServletConstants.ADDRESS_ID_PARAM %>"
                             value="<%= address.getId() %>">
                         Удалить
+                    </button>
+                </form>
+                <form style="display: inline;"
+                      name="apartments"
+                      method="get"
+                      action="<%= AddressServletConstants.APARTMENTS_FOR_ADDRESS_SERVLET %>">
+                    <button class="apartments-button"
+                            name="<%= AddressServletConstants.ADDRESS_ID_PARAM %>"
+                            value="<%= address.getId() %>">
+                        Связанные квартиры
                     </button>
                 </form>
             </div>
