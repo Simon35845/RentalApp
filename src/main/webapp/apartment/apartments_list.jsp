@@ -2,6 +2,7 @@
 <%@ page import="createdBy51mon.utils.servlet_constants.CommonServletConstants" %>
 <%@ page import="createdBy51mon.dto.ApartmentDTO" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.ApartmentServletConstants" %>
+<%@ page import="createdBy51mon.utils.servlet_constants.AddressServletConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
@@ -29,7 +30,11 @@
       background-color: rgba(230, 230, 200, 0.78);
     }
 
-    .update-button, .delete-button, .save-link-button, .main-link-button {
+    .update-button,
+    .delete-button,
+    .save-link-button,
+    .addresses-list-link-button,
+    .main-link-button {
       padding: 10px 20px;
       text-align: center;
       text-decoration: none;
@@ -38,6 +43,7 @@
       cursor: pointer;
       border: none;
       white-space: nowrap;
+      display: inline-block;
     }
 
     .update-button {
@@ -49,20 +55,27 @@
     }
 
     .save-link-button {
-      display: inline-block;
       background-color: #43a600;
+      width: 180px;
+    }
+
+    .addresses-list-link-button {
+      background-color: #007BFF;
+      width: 180px;
     }
 
     .main-link-button {
-      display: inline-block;
-      background-color: #007BFF;
+      background-color: #8f55cc;
+      width: 180px;
     }
 
     .button-container-1 {
-      display: flex;
-      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
       margin-top: 30px;
-      gap: 30px;
+      max-width: 400px;
+      justify-items: start;
     }
 
     .button-container-2 {
@@ -75,6 +88,7 @@
     .update-button:hover,
     .delete-button:hover,
     .save-link-button:hover,
+    .addresses-list-link-button,
     .main-link-button:hover{
       opacity: 0.8;
     }
@@ -137,14 +151,15 @@
       </div>
     </td>
   </tr>
-  <%
-    }
-  %>
+  <% } %>
 </table>
 <div class="button-container-1">
-  <a class="save-link-button" href="<%= ApartmentServletConstants.APARTMENT_SAVE_SERVLET %>">Добавить запись</a>
-  <br/>
-  <a class="main-link-button" href="<%= CommonServletConstants.MAIN_PAGE_SERVLET %>">Вернуться на главную</a>
+  <a class="save-link-button" href="<%= ApartmentServletConstants.APARTMENT_SAVE_SERVLET %>">
+    Добавить запись</a>
+  <a class="addresses-list-link-button" href="<%= AddressServletConstants.ADDRESSES_LIST_SERVLET %>">
+    Список адресов</a>
+  <a class="main-link-button" href="<%= CommonServletConstants.MAIN_PAGE_SERVLET %>">
+    Вернуться на главную</a>
 </div>
 </body>
 </html>

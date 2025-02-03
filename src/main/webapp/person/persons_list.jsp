@@ -2,6 +2,8 @@
 <%@ page import="createdBy51mon.dto.PersonDTO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.CommonServletConstants" %>
+<%@ page import="createdBy51mon.utils.servlet_constants.LandlordServletConstants" %>
+<%@ page import="createdBy51mon.utils.servlet_constants.TenantServletConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
@@ -29,7 +31,12 @@
             background-color: rgba(230, 230, 200, 0.78);
         }
 
-        .update-button, .delete-button, .save-link-button, .main-link-button {
+        .update-button,
+        .delete-button,
+        .save-link-button,
+        .landlords-list-link-button,
+        .tenants-list-link-button,
+        .main-link-button {
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
@@ -38,6 +45,7 @@
             cursor: pointer;
             border: none;
             white-space: nowrap;
+            display: inline-block;
         }
 
         .update-button {
@@ -49,20 +57,28 @@
         }
 
         .save-link-button {
-            display: inline-block;
             background-color: #43a600;
+            width: 180px;
+        }
+
+        .landlords-list-link-button,
+        .tenants-list-link-button {
+            background-color: #007BFF;
+            width: 180px;
         }
 
         .main-link-button {
-            display: inline-block;
-            background-color: #007BFF;
+            background-color: #8f55cc;
+            width: 180px;
         }
 
         .button-container-1 {
-            display: flex;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
             margin-top: 30px;
-            gap: 30px;
+            max-width: 400px;
+            justify-items: start;
         }
 
         .button-container-2 {
@@ -75,6 +91,8 @@
         .update-button:hover,
         .delete-button:hover,
         .save-link-button:hover,
+        .landlords-list-link-button,
+        .tenants-list-link-button,
         .main-link-button:hover{
             opacity: 0.8;
         }
@@ -130,13 +148,14 @@
             </div>
         </td>
     </tr>
-    <%
-        }
-    %>
+    <% } %>
 </table>
 <div class="button-container-1">
     <a class="save-link-button" href="<%= PersonServletConstants.PERSON_SAVE_SERVLET %>">Добавить запись</a>
-    <br/>
+    <a class="landlords-list-link-button" href="<%= LandlordServletConstants.LANDLORDS_LIST_SERVLET %>">
+        Список арендодателей</a>
+    <a class="tenants-list-link-button" href="<%= TenantServletConstants.TENANTS_LIST_SERVLET %>">
+        Список квартиросъемщиков</a>
     <a class="main-link-button" href="<%= CommonServletConstants.MAIN_PAGE_SERVLET %>">Вернуться на главную</a>
 </div>
 </body>

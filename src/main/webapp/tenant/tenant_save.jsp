@@ -38,7 +38,8 @@
             box-sizing: border-box;
         }
 
-        .save-button, .list-link-button {
+        .save-button,
+        .list-link-button {
             display: inline-block;
             padding: 10px 20px;
             text-align: center;
@@ -94,7 +95,8 @@
     </label>
     <div class="button-container">
         <button class="save-button" type="submit">Сохранить</button>
-        <a class="list-link-button" href="<%= TenantServletConstants.TENANTS_LIST_SERVLET %>">Вернуться к списку квартиросъемщиков</a>
+        <a class="list-link-button" href="<%= TenantServletConstants.TENANTS_LIST_SERVLET %>">
+            Вернуться к списку квартиросъемщиков</a>
     </div>
 </form>
 <p>*Данные поля заполнять необязательно</p>

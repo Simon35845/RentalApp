@@ -3,8 +3,7 @@ package createdBy51mon.utils;
 import javax.persistence.EntityManager;
 
 public class ExecutorUtil {
-    public static <T> T executeHibernate(EntityManager entityManager,
-                                         HibernateExecutor<T> hibernateExecutor) {
+    public static <T> T executeHibernate(EntityManager entityManager, HibernateExecutor<T> hibernateExecutor) {
         try {
             entityManager.getTransaction().begin();
             T t = hibernateExecutor.execute(entityManager);

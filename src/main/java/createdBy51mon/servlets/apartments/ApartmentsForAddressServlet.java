@@ -1,4 +1,4 @@
-package createdBy51mon.servlets.address;
+package createdBy51mon.servlets.apartments;
 
 import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.dto.ApartmentDTO;
@@ -26,27 +26,26 @@ public class ApartmentsForAddressServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         EncodingUtil.setUTF8(req, resp);
-        Integer id = ParsingUtil.getIntegerParam(req, AddressServletConstants.ADDRESS_ID_PARAM);
-        if (id == null) {
+        Integer addressId = ParsingUtil.getIntegerParam(req, AddressServletConstants.ADDRESS_ID_PARAM);
+        if (addressId == null) {
             resp.sendRedirect(CommonServletConstants.ERROR_JSP);
             return;
         }
 
-        AddressDTO address = addressService.get(id);
-        final List<ApartmentDTO> apartments = this.addressService.getApartmentsByAddress(id);
+        AddressDTO address = addressService.get(addressId);
+        final List<ApartmentDTO> apartments = this.addressService.getApartmentsByAddress(addressId);
 
         req.setAttribute(ApartmentServletConstants.APARTMENT_LIST_ATTRIBUTE, apartments);
         req.setAttribute(AddressServletConstants.ADDRESS_ATTRIBUTE, address);
 
         RequestDispatcher requestDispatcher = getServletContext()
-                .getRequestDispatcher("/apartments_for_address.jsp"); // Указываем путь к .jsp
+                .getRequestDispatcher(ApartmentServletConstants.APARTMENTS_FOR_ADDRESS_JSP);
         requestDispatcher.forward(req, resp);
     }
 
     @Override
     public void destroy() {
         this.addressService.closeDao();
-        // Закрытие других ресурсов, если необходимо
         super.destroy();
     }
 }

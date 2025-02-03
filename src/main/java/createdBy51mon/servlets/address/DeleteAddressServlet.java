@@ -1,6 +1,5 @@
 package createdBy51mon.servlets.address;
 
-import createdBy51mon.dto.AddressDTO;
 import createdBy51mon.service.AddressService;
 import createdBy51mon.service.impl.AddressServiceImpl;
 import createdBy51mon.utils.EncodingUtil;

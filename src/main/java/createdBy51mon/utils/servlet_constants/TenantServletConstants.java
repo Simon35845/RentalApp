@@ -11,9 +11,9 @@ public class TenantServletConstants {
     /**
      * JSP constants
      */
-    public static final String TENANTS_LIST_JSP = "/tenants_list.jsp";
-    public static final String TENANT_SAVE_JSP = "/tenant_save.jsp";
-    public static final String TENANTS_UPDATE_JSP = "/tenant_update.jsp";
+    public static final String TENANTS_LIST_JSP = "/tenant/tenants_list.jsp";
+    public static final String TENANT_SAVE_JSP = "/tenant/tenant_save.jsp";
+    public static final String TENANTS_UPDATE_JSP = "/tenant/tenant_update.jsp";
     /**
      * Field constants
      */

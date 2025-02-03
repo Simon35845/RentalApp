@@ -11,9 +11,9 @@ public class AddressServletConstants {
     /**
      * JSP constants
      */
-    public static final String ADDRESSES_LIST_JSP = "/addresses_list.jsp";
-    public static final String ADDRESS_SAVE_JSP = "/address_save.jsp";
-    public static final String ADDRESS_UPDATE_JSP = "/address_update.jsp";
+    public static final String ADDRESSES_LIST_JSP = "/address/addresses_list.jsp";
+    public static final String ADDRESS_SAVE_JSP = "/address/address_save.jsp";
+    public static final String ADDRESS_UPDATE_JSP = "/address/address_update.jsp";
     /**
      * Field constants
      */

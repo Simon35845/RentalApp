@@ -21,36 +21,32 @@
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.7);
+            color: white;
             border-radius: 5px;
             cursor: pointer;
             border: none;
             white-space: nowrap;
+            display: inline-block;
             width: 180px;
         }
 
         .apartments-list-link-button {
-            display: inline-block;
             background-color: rgba(214, 77, 46, 0.8);
         }
 
         .addresses-list-link-button {
-            display: inline-block;
             background-color: rgba(35, 193, 169, 0.8);
         }
 
         .persons-list-link-button {
-            display: inline-block;
             background-color: rgba(114, 95, 230, 0.76);
         }
 
         .landlords-list-link-button {
-            display: inline-block;
             background-color: rgba(220, 180, 46, 0.76);
         }
 
         .tenants-list-link-button {
-            display: inline-block;
             background-color: rgba(211, 60, 163, 0.76);
         }
 

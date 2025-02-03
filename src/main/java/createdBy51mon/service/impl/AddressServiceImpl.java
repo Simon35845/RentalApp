@@ -3,11 +3,15 @@ package createdBy51mon.service.impl;
 import createdBy51mon.dao.AddressDAO;
 import createdBy51mon.dao.impl.AddressDAOImpl;
 import createdBy51mon.dto.AddressDTO;
+import createdBy51mon.dto.ApartmentDTO;
 import createdBy51mon.entity.AddressEntity;
+import createdBy51mon.entity.ApartmentEntity;
 import createdBy51mon.service.AddressService;
 import createdBy51mon.utils.converters.AddressConverter;
+import createdBy51mon.utils.converters.ApartmentConverter;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class AddressServiceImpl implements AddressService {
@@ -55,6 +59,14 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public boolean delete(Integer id) {
         return addressDAO.delete(id);
+    }
+
+    @Override
+    public List<ApartmentDTO> getApartmentsByAddress(Integer id) {
+        Set<ApartmentEntity> apartments = addressDAO.getApartmentsByAddress(id);
+        return apartments.stream()
+                .map(ApartmentConverter::toDTO)
+                .collect(Collectors.toList());
     }
 
     @Override

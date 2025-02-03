@@ -1,5 +1,4 @@
 <%@ page import="createdBy51mon.dto.ApartmentDTO" %>
-<%@ page import="java.util.Set" %>
 <%@ page import="createdBy51mon.dto.AddressDTO" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.AddressServletConstants" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.ApartmentServletConstants" %>
@@ -32,7 +31,9 @@
             background-color: rgba(230, 230, 200, 0.78);
         }
 
-        .save-link-button, .main-link-button {
+        .save-link-button,
+        .list-link-button,
+        .main-link-button {
             padding: 10px 20px;
             text-align: center;
             text-decoration: none;
@@ -48,9 +49,13 @@
             background-color: #43a600;
         }
 
+        .list-link-button {
+            background-color: #007BFF;
+        }
+
         .main-link-button {
             display: inline-block;
-            background-color: #007BFF;
+            background-color: #8f55cc;
         }
 
         .button-container-1 {
@@ -61,6 +66,7 @@
         }
 
         .save-link-button:hover,
+        .list-link-button:hover,
         .main-link-button:hover {
             opacity: 0.8;
         }
@@ -85,16 +91,26 @@
         List<ApartmentDTO> apartments = (List<ApartmentDTO>) request.getAttribute(ApartmentServletConstants.APARTMENT_LIST_ATTRIBUTE);
         for (ApartmentDTO apartment : apartments) { %>
     <tr>
-        <td><%= apartment.getId() %></td>
-        <td><%= apartment.getApartmentNumber() %></td>
-        <td><%= apartment.getFloor() %></td>
-        <td><%= apartment.getCountOfRooms() %></td>
-        <td><%= apartment.getTotalSquare() %></td>
+        <td><%= apartment.getId() %>
+        </td>
+        <td><%= apartment.getApartmentNumber() %>
+        </td>
+        <td><%= apartment.getFloor() %>
+        </td>
+        <td><%= apartment.getCountOfRooms() %>
+        </td>
+        <td><%= apartment.getTotalSquare() %>
+        </td>
     </tr>
     <% } %>
 </table>
 <div class="button-container-1">
-    <a class="save-link-button" href="<%= AddressServletConstants.ADDRESS_SAVE_SERVLET %>">Добавить запись</a>
+    <a class="save-link-button"
+       href="<%= ApartmentServletConstants.APARTMENT_SAVE_SERVLET_2 %>?<%= AddressServletConstants.ADDRESS_ID_PARAM %>=<%= address.getId() %>">Добавить
+        квартиру</a>
+    <br/>
+    <a class="list-link-button" href="<%= AddressServletConstants.ADDRESSES_LIST_SERVLET %>">Вернуться к списку
+        адресов</a>
     <br/>
     <a class="main-link-button" href="<%= CommonServletConstants.MAIN_PAGE_SERVLET %>">Вернуться на главную</a>
 </div>

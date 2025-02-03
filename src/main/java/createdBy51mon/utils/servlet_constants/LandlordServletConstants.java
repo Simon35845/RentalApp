@@ -11,9 +11,9 @@ public class LandlordServletConstants {
     /**
      * JSP constants
      */
-    public static final String LANDLORDS_LIST_JSP = "/landlords_list.jsp";
-    public static final String LANDLORD_SAVE_JSP = "/landlord_save.jsp";
-    public static final String LANDLORDS_UPDATE_JSP = "/landlord_update.jsp";
+    public static final String LANDLORDS_LIST_JSP = "/landlord/landlords_list.jsp";
+    public static final String LANDLORD_SAVE_JSP = "/landlord/landlord_save.jsp";
+    public static final String LANDLORDS_UPDATE_JSP = "/landlord/landlord_update.jsp";
     /**
      * Field constants
      */

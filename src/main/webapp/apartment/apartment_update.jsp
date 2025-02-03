@@ -42,7 +42,9 @@
             box-sizing: border-box;
         }
 
-        .save-button, .list-link-button, .add-address-button {
+        .save-button,
+        .list-link-button,
+        .add-address-button {
             display: inline-block;
             padding: 10px 20px;
             text-align: center;
@@ -54,16 +56,13 @@
             white-space: nowrap;
         }
 
-        .save-button {
+        .save-button,
+        .add-address-button {
             background-color: #43a600;
         }
 
         .list-link-button {
             background-color: #007BFF;
-        }
-
-        .add-address-button {
-            background-color: #43a600;
         }
 
         .button-container {
@@ -100,7 +99,6 @@
             <option value="" disabled selected>Выберите адрес</option>
             <% for (AddressDTO address : addresses) { %>
             <option value="<%= address.getId() %>" <%= (address.getId().equals(currentAddressId)) ? "selected": "" %>>
-<%--            <option value="<%= address.getId() %>" selected>--%>
                 <%= address.getCity() + ", " + address.getStreet() + ", " + address.getHouseNumber() %>
             </option>
             <% } %>

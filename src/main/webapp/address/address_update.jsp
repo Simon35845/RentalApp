@@ -39,7 +39,8 @@
             box-sizing: border-box;
         }
 
-        .save-button, .list-link-button {
+        .save-button,
+        .list-link-button {
             display: inline-block;
             padding: 10px 20px;
             text-align: center;

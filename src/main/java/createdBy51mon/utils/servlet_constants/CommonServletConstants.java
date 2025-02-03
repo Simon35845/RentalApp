@@ -11,12 +11,7 @@ public class CommonServletConstants {
     public static final String MAIN_PAGE_JSP = "/main_page.jsp";
     public static final String ERROR_JSP = "/error.jsp";
     /**
-     * Field constants
-     */
-    public static final String ID_PARAM = "id";
-    /**
      * Attribute constants
      */
     public static final String ERROR_MESSAGE_ATTRIBUTE = "error_message";
-    public static final String ERROR_STACKTRACE_ATTRIBUTE = "error_stacktrace";
 }

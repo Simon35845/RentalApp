@@ -11,9 +11,9 @@ public class PersonServletConstants {
     /**
      * JSP constants
      */
-    public static final String PERSONS_LIST_JSP = "/persons_list.jsp";
-    public static final String PERSON_SAVE_JSP = "/person_save.jsp";
-    public static final String PERSONS_UPDATE_JSP = "/person_update.jsp";
+    public static final String PERSONS_LIST_JSP = "/person/persons_list.jsp";
+    public static final String PERSON_SAVE_JSP = "/person/person_save.jsp";
+    public static final String PERSONS_UPDATE_JSP = "/person/person_update.jsp";
     /**
      * Field constants
      */

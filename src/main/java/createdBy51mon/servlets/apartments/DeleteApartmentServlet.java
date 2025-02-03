@@ -1,6 +1,5 @@
 package createdBy51mon.servlets.apartments;
 
-import createdBy51mon.dto.ApartmentDTO;
 import createdBy51mon.service.ApartmentService;
 import createdBy51mon.service.impl.ApartmentServiceImpl;
 import createdBy51mon.utils.EncodingUtil;

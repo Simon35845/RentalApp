@@ -1,7 +1,5 @@
 <%@ page import="createdBy51mon.utils.servlet_constants.ApartmentServletConstants" %>
-<%@ page import="createdBy51mon.dto.AddressDTO" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.AddressServletConstants" %>
-<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
@@ -42,8 +40,8 @@
         }
 
         .save-button,
-        .list-link-button,
-        .add-address-button {
+        .apartments-list-link-button,
+        .addresses-list-link-button {
             display: inline-block;
             padding: 10px 20px;
             text-align: center;
@@ -55,12 +53,12 @@
             white-space: nowrap;
         }
 
-        .save-button,
-        .add-address-button {
+        .save-button {
             background-color: #43a600;
         }
 
-        .list-link-button {
+        .apartments-list-link-button,
+        .addresses-list-link-button{
             background-color: #007BFF;
         }
 
@@ -72,35 +70,21 @@
         }
 
         .save-button:hover,
-        .list-link-button:hover,
-        .add-address-button:hover {
+        .apartments-list-link-button:hover,
+        .addresses-list-link-button:hover {
             opacity: 0.8;
         }
     </style>
 </head>
 <body>
 <h2>Сохранение квартиры</h2>
-<%List<AddressDTO> addresses = (List<AddressDTO>) request.getAttribute(AddressServletConstants.ADDRESSES_LIST_ATTRIBUTE); %>
+<% Integer addressId = (Integer) request.getAttribute(AddressServletConstants.ADDRESS_ID_PARAM); %>
 <form name="save"
       method="post"
       action="<%= ApartmentServletConstants.APARTMENT_SAVE_SERVLET %>">
-    <label>
-        Выберите адрес:
-        <select name="<%= ApartmentServletConstants.APARTMENT_ADDRESS_ID_PARAM%>" required>
-            <option value="" disabled selected>Выберите адрес</option>
-            <% for (AddressDTO address : addresses) { %>
-            <option value="<%= address.getId() %>">
-                <%= address.getCity() + ", " + address.getStreet() + ", " + address.getHouseNumber() %>
-            </option>
-            <% } %>
-        </select>
-    </label>
-    <label>
-        Или
-        <br/>
-        <a class="add-address-button" href="<%= AddressServletConstants.ADDRESS_SAVE_SERVLET %>">
-            добавьте новый адрес</a>
-    </label>
+    <input name="<%= ApartmentServletConstants.APARTMENT_ADDRESS_ID_PARAM %>"
+           type="hidden"
+           value="<%= addressId %>">
     <label>
         Введите номер квартиры:
         <input name="<%= ApartmentServletConstants.APARTMENT_NUMBER_PARAM %>"
@@ -130,9 +114,12 @@
                 type="submit">
             Сохранить
         </button>
-        <a class="list-link-button"
+        <a class="apartments-list-link-button"
            href="<%= ApartmentServletConstants.APARTMENTS_LIST_SERVLET %>">
             Вернуться к списку квартир</a>
+        <a class="addresses-list-link-button"
+           href="<%= AddressServletConstants.ADDRESSES_LIST_SERVLET %>">
+            Вернуться к списку адресов</a>
     </div>
 </form>
 </body>
