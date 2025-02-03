@@ -1,9 +1,7 @@
 package createdBy51mon.servlets.landlord;
 
 import createdBy51mon.service.LandlordService;
-import createdBy51mon.service.PersonService;
 import createdBy51mon.service.impl.LandlordServiceImpl;
-import createdBy51mon.service.impl.PersonServiceImpl;
 import createdBy51mon.utils.EncodingUtil;
 import createdBy51mon.utils.HibernateUtil;
 import createdBy51mon.utils.ParsingUtil;

@@ -1,13 +1,7 @@
 package createdBy51mon.utils;
 
-import createdBy51mon.dto.AddressDTO;
-import createdBy51mon.dto.ApartmentDTO;
-import createdBy51mon.dto.LandlordDTO;
-import createdBy51mon.dto.PersonDTO;
-import createdBy51mon.utils.servlet_constants.AddressServletConstants;
-import createdBy51mon.utils.servlet_constants.ApartmentServletConstants;
-import createdBy51mon.utils.servlet_constants.LandlordServletConstants;
-import createdBy51mon.utils.servlet_constants.PersonServletConstants;
+import createdBy51mon.dto.*;
+import createdBy51mon.utils.servlet_constants.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -50,6 +44,16 @@ public class MappingUtil {
                 .surname(ParsingUtil.getStringParam(req, LandlordServletConstants.LANDLORD_SURNAME_PARAM))
                 .patronymic(ParsingUtil.getStringParam(req, LandlordServletConstants.LANDLORD_PATRONYMIC_PARAM))
                 .age(ParsingUtil.getIntegerParam(req, LandlordServletConstants.LANDLORD_AGE_PARAM))
+                .build();
+    }
+
+    public static TenantDTO mapTenant(HttpServletRequest req) {
+        return TenantDTO.builder()
+                .id(ParsingUtil.getIntegerParam(req, TenantServletConstants.TENANT_ID_PARAM))
+                .name(ParsingUtil.getStringParam(req, TenantServletConstants.TENANT_NAME_PARAM))
+                .surname(ParsingUtil.getStringParam(req, TenantServletConstants.TENANT_SURNAME_PARAM))
+                .patronymic(ParsingUtil.getStringParam(req, TenantServletConstants.TENANT_PATRONYMIC_PARAM))
+                .age(ParsingUtil.getIntegerParam(req, TenantServletConstants.TENANT_AGE_PARAM))
                 .build();
     }
 }

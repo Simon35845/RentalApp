@@ -1,8 +1,8 @@
-<%@ page import="createdBy51mon.utils.servlet_constants.LandlordServletConstants" %>
+<%@ page import="createdBy51mon.utils.servlet_constants.TenantServletConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
-    <title>Сохранение арендодателей</title>
+    <title>Сохранение квартиросъемщиков</title>
     <style>
         body {
             margin: 20px;
@@ -72,29 +72,29 @@
     </style>
 </head>
 <body>
-<h2>Сохранение арендодателей</h2>
+<h2>Сохранение квартиросъемщиков</h2>
 <form name="save"
       method="post"
-      action="<%= LandlordServletConstants.LANDLORD_SAVE_SERVLET %>">
+      action="<%= TenantServletConstants.TENANT_SAVE_SERVLET %>">
     <label>
         Введите фамилию:
-        <input name="<%= LandlordServletConstants.LANDLORD_SURNAME_PARAM %>" type="text" required>
+        <input name="<%= TenantServletConstants.TENANT_SURNAME_PARAM %>" type="text" required>
     </label>
     <label>
         Введите имя:
-        <input name="<%= LandlordServletConstants.LANDLORD_NAME_PARAM %>" type="text" required>
+        <input name="<%= TenantServletConstants.TENANT_NAME_PARAM %>" type="text" required>
     </label>
     <label>
         Введите отчество*:
-        <input name="<%= LandlordServletConstants.LANDLORD_PATRONYMIC_PARAM %>" type="text">
+        <input name="<%= TenantServletConstants.TENANT_PATRONYMIC_PARAM %>" type="text">
     </label>
     <label>
         Введите возраст:
-        <input name="<%= LandlordServletConstants.LANDLORD_AGE_PARAM %>" type="text" required>
+        <input name="<%= TenantServletConstants.TENANT_AGE_PARAM %>" type="text" required>
     </label>
     <div class="button-container">
         <button class="save-button" type="submit">Сохранить</button>
-        <a class="list-link-button" href="<%= LandlordServletConstants.LANDLORDS_LIST_SERVLET %>">Вернуться к списку арендодателей</a>
+        <a class="list-link-button" href="<%= TenantServletConstants.TENANTS_LIST_SERVLET %>">Вернуться к списку квартиросъемщиков</a>
     </div>
 </form>
 <p>*Данные поля заполнять необязательно</p>

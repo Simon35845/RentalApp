@@ -1,5 +1,3 @@
-<%@ page import="createdBy51mon.dto.PersonDTO" %>
-<%@ page import="createdBy51mon.utils.servlet_constants.PersonServletConstants" %>
 <%@ page import="createdBy51mon.utils.servlet_constants.LandlordServletConstants" %>
 <%@ page import="createdBy51mon.dto.LandlordDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

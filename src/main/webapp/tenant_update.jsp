@@ -1,8 +1,9 @@
-<%@ page import="createdBy51mon.utils.servlet_constants.LandlordServletConstants" %>
+<%@ page import="createdBy51mon.dto.TenantDTO" %>
+<%@ page import="createdBy51mon.utils.servlet_constants.TenantServletConstants" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="ru">
 <head>
-    <title>Сохранение арендодателей</title>
+    <title>Изменение квартиросъемщиков</title>
     <style>
         body {
             margin: 20px;
@@ -72,29 +73,45 @@
     </style>
 </head>
 <body>
-<h2>Сохранение арендодателей</h2>
-<form name="save"
+<% TenantDTO landlord = (TenantDTO) request.getAttribute(TenantServletConstants.TENANT_ATTRIBUTE); %>
+<h2>Изменение квартиросъемщиков</h2>
+<form name="update"
       method="post"
-      action="<%= LandlordServletConstants.LANDLORD_SAVE_SERVLET %>">
+      action="<%= TenantServletConstants.TENANT_UPDATE_SERVLET %>">
+    <input name="<%= TenantServletConstants.TENANT_ID_PARAM %>"
+           type="hidden"
+           value="<%= landlord.getId() %>"
+           required>
     <label>
-        Введите фамилию:
-        <input name="<%= LandlordServletConstants.LANDLORD_SURNAME_PARAM %>" type="text" required>
+        Изменить фамилию:
+        <input name="<%= TenantServletConstants.TENANT_SURNAME_PARAM %>"
+               type="text"
+               value="<%= landlord.getSurname() %>"
+               required>
     </label>
     <label>
-        Введите имя:
-        <input name="<%= LandlordServletConstants.LANDLORD_NAME_PARAM %>" type="text" required>
+        Изменить имя:
+        <input name="<%= TenantServletConstants.TENANT_NAME_PARAM %>"
+               type="text"
+               value="<%= landlord.getName()%>"
+               required>
     </label>
     <label>
-        Введите отчество*:
-        <input name="<%= LandlordServletConstants.LANDLORD_PATRONYMIC_PARAM %>" type="text">
+        Изменить отчество:
+        <input name="<%= TenantServletConstants.TENANT_PATRONYMIC_PARAM %>"
+               type="text"
+               value="<%= landlord.getPatronymic()%>">
     </label>
     <label>
-        Введите возраст:
-        <input name="<%= LandlordServletConstants.LANDLORD_AGE_PARAM %>" type="text" required>
+        Изменить возраст:
+        <input name="<%= TenantServletConstants.TENANT_AGE_PARAM %>"
+               type="text"
+               value="<%= landlord.getAge() %>"
+               required>
     </label>
     <div class="button-container">
         <button class="save-button" type="submit">Сохранить</button>
-        <a class="list-link-button" href="<%= LandlordServletConstants.LANDLORDS_LIST_SERVLET %>">Вернуться к списку арендодателей</a>
+        <a class="list-link-button" href="<%= TenantServletConstants.TENANTS_LIST_SERVLET %>">Вернуться к списку квартиросъемщиков</a>
     </div>
 </form>
 <p>*Данные поля заполнять необязательно</p>
