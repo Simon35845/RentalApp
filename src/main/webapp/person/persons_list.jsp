@@ -93,7 +93,7 @@
         .save-link-button:hover,
         .landlords-list-link-button,
         .tenants-list-link-button,
-        .main-link-button:hover{
+        .main-link-button:hover {
             opacity: 0.8;
         }
     </style>
@@ -107,6 +107,8 @@
         <th>Имя</th>
         <th>Отчество</th>
         <th>Возраст</th>
+        <th>Арендодатель</th>
+        <th>Квартиросъемщик</th>
         <th>Действия</th>
     </tr>
     <% List<PersonDTO> persons = (List<PersonDTO>) request.getAttribute(PersonServletConstants.PERSONS_LIST_ATTRIBUTE);
@@ -123,28 +125,32 @@
         </td>
         <td><%= person.getAge() %>
         </td>
+        <td><input type="checkbox" <%= person.getIsLandlord() ? "checked" : "" %> disabled>
+        </td>
+        <td><input type="checkbox" <%= person.getIsTenant() ? "checked" : "" %> disabled>
+        </td>
         <td>
             <div class="button-container-2">
-            <form style="display: inline;"
-                    name="update"
-                  method="get"
-                  action="<%= PersonServletConstants.PERSON_UPDATE_SERVLET %>">
-                <button class="update-button"
-                        name="<%= PersonServletConstants.PERSON_ID_PARAM %>"
-                        value="<%= person.getId() %>">
-                    Изменить
-                </button>
-            </form>
-            <form style="display: inline;"
-                    name="delete"
-                  method="post"
-                  action="<%= PersonServletConstants.PERSON_DELETE_SERVLET %>">
-                <button class="delete-button"
-                        name="<%= PersonServletConstants.PERSON_ID_PARAM %>"
-                        value="<%= person.getId() %>">
-                    Удалить
-                </button>
-            </form>
+                <form style="display: inline;"
+                      name="update"
+                      method="get"
+                      action="<%= PersonServletConstants.PERSON_UPDATE_SERVLET %>">
+                    <button class="update-button"
+                            name="<%= PersonServletConstants.PERSON_ID_PARAM %>"
+                            value="<%= person.getId() %>">
+                        Изменить
+                    </button>
+                </form>
+                <form style="display: inline;"
+                      name="delete"
+                      method="post"
+                      action="<%= PersonServletConstants.PERSON_DELETE_SERVLET %>">
+                    <button class="delete-button"
+                            name="<%= PersonServletConstants.PERSON_ID_PARAM %>"
+                            value="<%= person.getId() %>">
+                        Удалить
+                    </button>
+                </form>
             </div>
         </td>
     </tr>

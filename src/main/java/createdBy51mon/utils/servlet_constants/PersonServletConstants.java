@@ -22,6 +22,8 @@ public class PersonServletConstants {
     public static final String PERSON_SURNAME_PARAM = "surname";
     public static final String PERSON_PATRONYMIC_PARAM = "patronymic";
     public static final String PERSON_AGE_PARAM = "age";
+    public static final String PERSON_IS_LANDLORD = "isLandlord";
+    public static final String PERSON_IS_TENANT = "isTenant";
     /**
      * Attribute constants
      */

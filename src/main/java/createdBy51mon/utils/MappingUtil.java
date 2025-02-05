@@ -34,6 +34,8 @@ public class MappingUtil {
                 .surname(ParsingUtil.getStringParam(req, PersonServletConstants.PERSON_SURNAME_PARAM))
                 .patronymic(ParsingUtil.getStringParam(req, PersonServletConstants.PERSON_PATRONYMIC_PARAM))
                 .age(ParsingUtil.getIntegerParam(req, PersonServletConstants.PERSON_AGE_PARAM))
+                .isLandlord(ParsingUtil.getBooleanParam(req, PersonServletConstants.PERSON_IS_LANDLORD))
+                .isTenant(ParsingUtil.getBooleanParam(req, PersonServletConstants.PERSON_IS_TENANT))
                 .build();
     }
 

@@ -45,9 +45,6 @@ public class LandlordServiceImpl implements LandlordService {
             LandlordEntity updatedEntity = landlordDAO.update(id, newEntity);
             landlordDTO.setId(updatedEntity.getId());
         }
-
-        newEntity.setId(id);
-        landlordDTO.setId(landlordDAO.update(id, newEntity).getId());
         return landlordDTO;
     }
 

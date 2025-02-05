@@ -45,9 +45,6 @@ public class TenantServiceImpl implements TenantService {
             TenantEntity updatedEntity = tenantDAO.update(id, newEntity);
             tenantDTO.setId(updatedEntity.getId());
         }
-
-        newEntity.setId(id);
-        tenantDTO.setId(tenantDAO.update(id, newEntity).getId());
         return tenantDTO;
     }
 

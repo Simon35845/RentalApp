@@ -28,9 +28,7 @@ public class ParsingUtil {
 
     public static Boolean getBooleanParam(HttpServletRequest req, String nameField) {
         return Optional.ofNullable(req.getParameter(nameField))
-                .filter(StringUtils::isNotBlank)
-                .map(Boolean::parseBoolean)
-                .orElse(null);
+                .map(param -> param.equals("on"))
+                .orElse(false);
     }
-
 }

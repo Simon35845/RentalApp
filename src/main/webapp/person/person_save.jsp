@@ -79,20 +79,41 @@
       action="<%= PersonServletConstants.PERSON_SAVE_SERVLET %>">
     <label>
         Введите фамилию:
-        <input name="<%= PersonServletConstants.PERSON_SURNAME_PARAM %>" type="text" required>
+        <input name="<%= PersonServletConstants.PERSON_SURNAME_PARAM %>"
+               type="text"
+               required>
     </label>
     <label>
         Введите имя:
-        <input name="<%= PersonServletConstants.PERSON_NAME_PARAM %>" type="text" required>
+        <input name="<%= PersonServletConstants.PERSON_NAME_PARAM %>"
+               type="text"
+               required>
     </label>
     <label>
         Введите отчество*:
-        <input name="<%= PersonServletConstants.PERSON_PATRONYMIC_PARAM %>" type="text">
+        <input name="<%= PersonServletConstants.PERSON_PATRONYMIC_PARAM %>"
+               type="text">
     </label>
     <label>
         Введите возраст:
-        <input name="<%= PersonServletConstants.PERSON_AGE_PARAM %>" type="text" required>
+        <input name="<%= PersonServletConstants.PERSON_AGE_PARAM %>"
+               type="text"
+               required>
     </label>
+    <label>
+        <input name="<%= PersonServletConstants.PERSON_IS_LANDLORD %>"
+               type="checkbox"
+                <%= "true".equals(request.getParameter(PersonServletConstants.PERSON_IS_LANDLORD)) ? "checked" : "" %> />
+        Я арендодатель
+    </label>
+    <br/>
+    <label>
+        <input name="<%= PersonServletConstants.PERSON_IS_TENANT %>"
+               type="checkbox"
+                <%= "true".equals(request.getParameter(PersonServletConstants.PERSON_IS_TENANT)) ? "checked" : "" %> />
+        Я квартиросъемщик
+    </label>
+    <br/>
     <div class="button-container">
         <button class="save-button" type="submit">Сохранить</button>
         <a class="list-link-button" href="<%= PersonServletConstants.PERSONS_LIST_SERVLET %>">Вернуться к списку лиц</a>
