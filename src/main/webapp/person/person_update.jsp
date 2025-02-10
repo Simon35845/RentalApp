@@ -110,21 +110,6 @@
                value="<%= person.getAge() %>"
                required>
     </label>
-    <label>
-        Арендодатель
-        <input name="<%= PersonServletConstants.PERSON_IS_LANDLORD %>"
-               type="checkbox"
-               <%= person.getIsLandlord() ? "checked" : "" %>>
-
-    </label>
-    <br/>
-    <label>
-        Квартиросъемщик
-        <input name="<%= PersonServletConstants.PERSON_IS_TENANT %>"
-               type="checkbox"
-               <%= person.getIsTenant() ? "checked" : "" %>>
-    </label>
-    <br/>
     <div class="button-container">
         <button class="save-button" type="submit">Сохранить</button>
         <a class="list-link-button" href="<%= PersonServletConstants.PERSONS_LIST_SERVLET %>">Вернуться к списку лиц</a>

@@ -100,20 +100,6 @@
                type="text"
                required>
     </label>
-    <label>
-        <input name="<%= PersonServletConstants.PERSON_IS_LANDLORD %>"
-               type="checkbox"
-                <%= "true".equals(request.getParameter(PersonServletConstants.PERSON_IS_LANDLORD)) ? "checked" : "" %> />
-        Я арендодатель
-    </label>
-    <br/>
-    <label>
-        <input name="<%= PersonServletConstants.PERSON_IS_TENANT %>"
-               type="checkbox"
-                <%= "true".equals(request.getParameter(PersonServletConstants.PERSON_IS_TENANT)) ? "checked" : "" %> />
-        Я квартиросъемщик
-    </label>
-    <br/>
     <div class="button-container">
         <button class="save-button" type="submit">Сохранить</button>
         <a class="list-link-button" href="<%= PersonServletConstants.PERSONS_LIST_SERVLET %>">Вернуться к списку лиц</a>

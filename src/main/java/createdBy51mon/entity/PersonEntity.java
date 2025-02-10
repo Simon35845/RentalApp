@@ -41,10 +41,4 @@ public class PersonEntity{
 
     @Column
     private Integer age;
-
-    @Column(name = "is_landlord")
-    private Boolean isLandlord = false;
-
-    @Column(name = "is_tenant")
-    private Boolean isTenant = false;
 }

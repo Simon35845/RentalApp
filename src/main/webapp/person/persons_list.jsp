@@ -107,8 +107,6 @@
         <th>Имя</th>
         <th>Отчество</th>
         <th>Возраст</th>
-        <th>Арендодатель</th>
-        <th>Квартиросъемщик</th>
         <th>Действия</th>
     </tr>
     <% List<PersonDTO> persons = (List<PersonDTO>) request.getAttribute(PersonServletConstants.PERSONS_LIST_ATTRIBUTE);
@@ -124,10 +122,6 @@
         <td><%= person.getPatronymic() %>
         </td>
         <td><%= person.getAge() %>
-        </td>
-        <td><input type="checkbox" <%= person.getIsLandlord() ? "checked" : "" %> disabled>
-        </td>
-        <td><input type="checkbox" <%= person.getIsTenant() ? "checked" : "" %> disabled>
         </td>
         <td>
             <div class="button-container-2">

@@ -14,8 +14,6 @@ public class PersonConverter {
                 .surname(entity.getSurname())
                 .patronymic(entity.getPatronymic())
                 .age(entity.getAge())
-                .isLandlord(entity.getIsLandlord())
-                .isTenant(entity.getIsTenant())
                 .build();
     }
 
@@ -29,8 +27,6 @@ public class PersonConverter {
                 .surname(dto.getSurname())
                 .patronymic(dto.getPatronymic())
                 .age(dto.getAge())
-                .isLandlord(dto.getIsLandlord())
-                .isTenant(dto.getIsTenant())
                 .build();
     }
 }

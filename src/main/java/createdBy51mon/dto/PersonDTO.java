@@ -15,6 +15,4 @@ public class PersonDTO {
     private String surname;
     private String patronymic;
     private Integer age;
-    private Boolean isLandlord = false;
-    private Boolean isTenant = false;
 }
